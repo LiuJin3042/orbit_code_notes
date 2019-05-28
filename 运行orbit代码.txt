@@ -1,0 +1,14 @@
+转到工作目录文件夹
+    .p文件>作图命令
+    .f文件>源文件
+    .plt文件>输出文件
+进入Makefile文件,设置库文件的路径
+主文件:ORBIT.f
+设置参考README.PDF
+编译:make FC=pgf90
+递交:qsub job.pbs
+结果:orbit.out
+traj1.plt,traj2.plt,粒子运行轨迹
+fbm_dist.dat 粒子分布
+eqs.f 设备参数
+ptrb.dat 扰动数据

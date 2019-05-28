@@ -1,0 +1,11 @@
+账号和密码
+user:yulimin
+Passwd:Zmr6mg3K
+工作目录路径 
+cd /scratch/yulimin/works/ORBIT
+递交任务: qsub job.pbs
+查询状态:  qstat -u yulimin
+下载openvpn网址: http://openvpn.ustc.edu.cn/
+shenma服务器网址：http://hpc.ipp.ac.cn/
+
+nohup ./orbit > myout.file 2>&1 &   
