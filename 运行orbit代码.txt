@@ -3,7 +3,7 @@
     .f文件>源文件
     .plt文件>输出文件
 进入Makefile文件,设置库文件的路径
-主文件:ORBIT.f
+主文件: orbit.F
 设置参考README.PDF
 编译:make FC=pgf90
 递交:qsub job.pbs
