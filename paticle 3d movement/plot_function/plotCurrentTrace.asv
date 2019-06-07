@@ -1,5 +1,5 @@
 function plotCurrentTrace(pos, t)
-    global x_min x_max y_min y_max z_min z_max;
+    global x_min x_max y_min y_max;
     if t ~= 0
         [a, ~, ~] = size(pos);
         hold on
@@ -7,7 +7,7 @@ function plotCurrentTrace(pos, t)
         box on
         grid on
         set(gca, 'linewidth', 1.5)
-        axis([x_min x_max y_min y_max z_min z_max])
+        axis([x_min x_max y_min y_max])
         for i = 1:a
             x = zeros(1, t);
             y = zeros(1, t);
@@ -15,7 +15,7 @@ function plotCurrentTrace(pos, t)
             for j = 1:t
                 x(j) = pos(i, 1, j);
                 y(j) = pos(i, 2, j);
-                z(j) = pos(i, 3, j);
+                z(j) = pos(i, 2, j);
             end
             plot3(x, y, z, 'linewidth', 1.5)
         end
