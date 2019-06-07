@@ -1,7 +1,8 @@
 function plotPosVec(current_pos, t, pos_all)
 %current_pos, 是当前粒子位置,当前时间
 %pos_all, 是粒子所有位置,也就是主程序的pos
-    global x_min x_max y_min y_max z_min z_max;
+    global dt time_end x_min x_max y_min y_max z_min z_max x_label y_label z_label;
+    fprintf('present time is %f(/%f)', t*dt, time_end)
     [~,D] = size(current_pos);
     figure(1)
     if D == 2
@@ -18,5 +19,8 @@ function plotPosVec(current_pos, t, pos_all)
     plotCurrentTrace(pos_all, t)
     text(x_max*13/25, y_min*20/25, z_min*20/25, 'Moving Trace of Single Particle', 'horiz', 'center', 'color', 'r')
     axis([x_min x_max y_min y_max z_min z_max])
+    xlabel(x_label)
+    ylabel(y_label)
+    zlabel(z_label)
     hold off
 end

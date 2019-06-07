@@ -1,10 +1,11 @@
 function plotPosition(pos, time)
 %画出粒子运动的函数
-    global isOutVideo;
+    global dt isOutVideo;
     figure(1)
     if isOutVideo == true
         %打开一个视频对象
         writerObj = VideoWriter('test_plt.avi');
+        writerObj.FrameRate = floor(1/dt);
         open(writerObj);
     end
     for t = 1:length(time)

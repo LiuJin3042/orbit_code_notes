@@ -14,39 +14,46 @@ clc, clear, close all
     @Cartman
 %}
 
-%% 初始条件
+%% 添加路径
 addpath(genpath('./plot_function'))
 
-%% 参数设置
-global dt x_min x_max y_min y_max z_min z_max time_end isOutVideo;
-% 结束时间
-time_end = 10;
-% 时间间隔
-dt = 0.05;
-%粒子个数
-N = 1;
-%维度
-D = 2;
-%采样时间
-time = 0:dt:time_end;
-% 坐标
-pos = zeros(N, D, length(time));
-%% 坐标和图像设置.这里用正弦函数模拟.实际上应当读取数据
-%三个维度的数据
-% d1 = cos(time);
-% d2 = sin(time);
-% d3 = time;
+%%全局变量
+global dt x_min x_max y_min y_max z_min z_max time_end isOutVideo x_label y_label z_label;
+
 %% 读取数据
 [trajectory,t_msec,x,z,pol,theta,zeta] = read_traj('traj1.plt');
 d1 = x;
 d2 = z*1000;
+
+
+%% 参数设置
+%采样时间
 time = trajectory;
+% 结束时间
+time_end = time(end);
+% 时间间隔
 dt = time(2) - time(1);
+%粒子个数
+N = 1;
+%维度
+D = 2;
+% N个粒子所有时刻的D个维度坐标坐标
+pos = zeros(N, D, length(time));
+% 坐标轴名称
+x_label = 'x';
+y_label = 'z';
+z_label = '';
+%% 坐标和图像设置.这里用正弦函数模拟.实际上应当读取数据
+%三个维度的数据,测试用
+% d1 = cos(time);
+% d2 = sin(time);
+% d3 = time;
+
 % 图像边界
 % x_min 取d1的最小值的绝对值和最大值的绝对值中大的哪一个的相反数
 x_min = -max(abs(min(d1)),abs(max(d1)));
 x_max = -x_min;
-y_min = x_min;
+y_min = -max(abs(min(d2)),abs(max(d2)));
 y_max = -y_min;
 z_min = x_min;
 z_max = -z_min;
