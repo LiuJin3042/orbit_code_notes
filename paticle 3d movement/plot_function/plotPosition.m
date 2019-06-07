@@ -13,7 +13,7 @@ function plotPosition(pos, time)
         if isOutVideo == true
             %±£´æÎªÊÓÆµ
             frame = getframe;
-            frame.cdata = imresize(frame.cdata, [685, 685]);
+            frame.cdata = imresize(frame.cdata, [1000,1000]);
             writeVideo(writerObj, frame);
         end
     end

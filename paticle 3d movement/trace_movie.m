@@ -25,16 +25,26 @@ time_end = 10;
 dt = 0.05;
 %粒子个数
 N = 1;
+%维度
+D = 2;
 %采样时间
 time = 0:dt:time_end;
 % 坐标
-pos = zeros(N, 3, length(time));
+pos = zeros(N, D, length(time));
 %% 坐标和图像设置.这里用正弦函数模拟.实际上应当读取数据
-x = cos(time);
-y = sin(time);
-z = time;
+%三个维度的数据
+% d1 = cos(time);
+% d2 = sin(time);
+% d3 = time;
+%% 读取数据
+[trajectory,t_msec,x,z,pol,theta,zeta] = read_traj('traj1.plt');
+d1 = x;
+d2 = z*1000;
+time = trajectory;
+dt = time(2) - time(1);
 % 图像边界
-x_min = -20;
+% x_min 取d1的最小值的绝对值和最大值的绝对值中大的哪一个的相反数
+x_min = -max(abs(min(d1)),abs(max(d1)));
 x_max = -x_min;
 y_min = x_min;
 y_max = -y_min;
@@ -43,13 +53,14 @@ z_max = -z_min;
 % 是否输出视频图像
 isOutVideo = true;
 
-%% 迭代开始
+%% 给粒子位置赋值
 for i = 1:length(time)
-    pos(1,1,i) = x(i);
-    pos(1,2,i) = y(i);
-    pos(1,3,i) = z(i);
+    for j = 1:D
+        eval(['pos(1,j,i) = d',num2str(j),'(i);'])
+    end
 end
 
 %% 作图区
 % 做轨迹图像
 plotPosition(pos, time)
+close all
