@@ -1,0 +1,3 @@
+安装adobe acrobat pro
+将pdf导出为HTML格式
+用谷歌浏览器打开html, 选择自动翻译, 就可以完成翻译.
