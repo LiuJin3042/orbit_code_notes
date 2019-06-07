@@ -18,8 +18,8 @@ clc, clear, close all
 addpath(genpath('./plot_function'))
 
 %%全局变量
-global dt x_min x_max y_min y_max z_min z_max time_end isOutVideo x_label y_label z_label;
-
+global dt x_min x_max y_min y_max z_min z_max isOutVideo x_label y_label z_label;
+global trace duration time_start
 %% 读取数据
 [trajectory,t_msec,x,z,pol,theta,zeta] = read_traj('traj1.plt');
 d1 = x;
@@ -29,10 +29,18 @@ d2 = z*1000;
 %% 参数设置
 %采样时间
 time = trajectory;
-% 结束时间
-time_end = time(end);
 % 时间间隔
 dt = time(2) - time(1);
+%绘图开始时间(s),结束时间(s)
+time_start = 6;
+time_end = 6.05;
+%起始结束帧数
+frame_start = ceil(time_start/dt) + 1;
+frame_end = ceil(time_end/dt) + 1;
+%持续时间
+duration = time_end - time_start;
+%绘图时间
+time = time(frame_start:frame_end);
 %粒子个数
 N = 1;
 %维度
@@ -43,6 +51,8 @@ pos = zeros(N, D, length(time));
 x_label = 'x';
 y_label = 'z';
 z_label = '';
+%历史步数设置,防止输出过多挡住屏幕.设置显示trace步
+trace = 250;
 %% 坐标和图像设置.这里用正弦函数模拟.实际上应当读取数据
 %三个维度的数据,测试用
 % d1 = cos(time);
@@ -63,7 +73,7 @@ isOutVideo = true;
 %% 给粒子位置赋值
 for i = 1:length(time)
     for j = 1:D
-        eval(['pos(1,j,i) = d',num2str(j),'(i);'])
+        eval(['pos(1,j,i) = d',num2str(j),'(frame_start+i);'])
     end
 end
 

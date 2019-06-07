@@ -1,8 +1,8 @@
 function plotPosVec(current_pos, t, pos_all)
 %current_pos, 是当前粒子位置,当前时间
 %pos_all, 是粒子所有位置,也就是主程序的pos
-    global dt time_end x_min x_max y_min y_max z_min z_max x_label y_label z_label;
-    fprintf('present time is %f(/%f)', t*dt, time_end)
+    global dt time_start duration x_min x_max y_min y_max z_min z_max x_label y_label z_label;
+    fprintf('present time is %fs/%fs)\n', time_start + t*dt, time_start + duration)
     [~,D] = size(current_pos);
     figure(1)
     if D == 2
