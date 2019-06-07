@@ -4,7 +4,7 @@ function plotPosition(pos, time)
     figure(1)
     if isOutVideo == true
         %打开一个视频对象
-        writerObj = VideoWriter('test_plt.avi');
+        writerObj = VideoWriter('paticle_trace.avi');
         writerObj.FrameRate = floor(1/dt);
         open(writerObj);
     end

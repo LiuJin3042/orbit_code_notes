@@ -6,9 +6,9 @@ function plotPosVec(current_pos, t, pos_all)
     [~,D] = size(current_pos);
     figure(1)
     if D == 2
-        scatter(current_pos(:,1), current_pos(:,2), 'ok', 'filled')
+        scatter(current_pos(:,1), current_pos(:,2), 'or', 'filled')
     elseif D == 3
-        scatter3(current_pos(:,1), current_pos(:,2), current_pos(:,3), 'ok', 'filled')
+        scatter3(current_pos(:,1), current_pos(:,2), current_pos(:,3), 'or', 'filled')
     end
     axis equal
     box on

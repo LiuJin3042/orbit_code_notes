@@ -32,8 +32,8 @@ time = trajectory;
 % 时间间隔
 dt = time(2) - time(1);
 %绘图开始时间(s),结束时间(s)
-time_start = 6;
-time_end = 6.05;
+time_start = 0;
+time_end = 1;
 %起始结束帧数
 frame_start = ceil(time_start/dt) + 1;
 frame_end = ceil(time_end/dt) + 1;
