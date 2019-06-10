@@ -78,9 +78,10 @@ if pt==4
     lost1 = lost(good_index,:);
 end
 
-[~,thet1,zet1,x1,z1,en1,ptch1,pz1,pz10,muB1,pol0,~,t1,~,~] = valuation(lost1);
-draw_figure(t1,x1,'t1','x1',filename);
-% draw_figure(x1,z1,'x1','z1','lost plt x z');
+[~,thet1,zet1,x1,z1,en1,ptch1,pz1,pz10,muB1,pol0,~,~,~] = valuation(lost1);
+% [~,thet,zet,x,z,en,ptch,P,P0,mu_times_B,~,V,~,~]
+% draw_figure(t1,x1,'t1','x1',filename);
+draw_figure(x1,z1,'x1','z1','lost plt x z');
 % draw_figure(pz1,muB1,'pz1','mub1',filename);
 % draw_figure(pz1,en1,'E/keV','Pphi','lost plt EkeV phi');
 % draw_figure(ptch1,en1,'ptch','energy','lost plt ptch en');

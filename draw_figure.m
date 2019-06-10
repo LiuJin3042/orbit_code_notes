@@ -32,7 +32,7 @@ figure
 contour(X,Y,count_mat');
 ylabel(ylabel_name,'FontSize',16)
 xlabel(xlabel_name,'FontSize',16)
-pic_title = [filename,'_',inputname(1),'_',inputname(2),'contour'];
+pic_title = [filename,'-',inputname(1),'-',inputname(2),'contour'];
 title(pic_title)
 set(gca,'FontSize',16)
 saveas(gcf,[pic_title,'_contour.fig'])
@@ -50,7 +50,7 @@ shading flat
 ylabel(ylabel_name,'FontSize',16)
 xlabel(xlabel_name,'FontSize',16)
 set(gca,'FontSize',16)
-pic_title = [filename,'_',inputname(1),'_',inputname(2),'surf'];
+pic_title = [filename,'-',inputname(1),'-',inputname(2),'surf'];
 title(pic_title)
 %title([str ', ' str1])
 colorbar
