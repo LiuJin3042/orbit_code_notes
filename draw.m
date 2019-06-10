@@ -1,4 +1,4 @@
-num=xlsread('xztime.xlsx', 'A1:C90'); %¶ÁÈ¡³ö¸ÃÇøÓòµÄÊı¾İ×÷Îª±í¸ñ
+num=xlsread('lost.xlsx', 'A1:C90'); %¶ÁÈ¡³ö¸ÃÇøÓòµÄÊı¾İ×÷Îª±í¸ñ
 A=num(:,1); %´ÓB¾ØÕóÈ¡³öµÚÒ»ÁĞµÄËùÓĞĞĞ
 B=num(:,2); 
 C=num(:,3); 
@@ -6,8 +6,10 @@ xx=linspace(min(A),max(A),100); %²úÉúmin(A)µ½max(A)¾ùÌ¯µÄ50¸öµã£¬Ä¿µÄÉÏÄâºÏÀëÉ¢µ
 yy=linspace(min(B),max(B),100); 
 [xt,yt]=meshgrid(xx,yy); %×ö³É¶şÎ¬Íø¸ñ
 zt = griddata(A,B,C,xt,yt,'nearest'); %ÓÃv4µãµÄ·½Ê½½øĞĞÌî³ä
+ histogram2('XBinEdges',-1:1,'YBinEdges',-2:2,'BinCounts',[1 2 3 4; 5 6 7 8])
 figure
 surf(xt,yt,zt) %Êä³ö½á¹ûÍ¼ĞÎ
+N = hist3(X,'Ctrs',{0:10:50 2000:500:5000})
 shading interp
 
 
