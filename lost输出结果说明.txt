@@ -1,0 +1,6 @@
+#    AC  FILE81450A  TIME     =4.2899     +
+#  1, co-pass confined,  2, co-pass lost                                                            
+#  3, ctr-pass confined, 4, ctr-pass lost                                                           
+#  5, trapped confined,  6, trapped lost                                                            
+#  7, stagnation, 8, conf potato, 9, lost potato                                                    
+# lost-pol/pw,thet(极向角),zet(环向角),x,z,en(能量),ptch(俯仰角),P(动量),P0(初动量),mu*B(磁矩),pol0,V,k(例子序号),     type
