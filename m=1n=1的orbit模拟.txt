@@ -45,8 +45,12 @@
 文献:Scalings of energetic particle transport by ion temperature gradient
 microturbulencea…
   delta r^2/p1_i^2 - t 的图像得到扩散系数,扩散系数和能量的关系.
+  有了扩散系数,流flux=-D(扩散系数)*grad n = nv.(fick定律),
+  电流密度=env=e*flux
   
-  
+画出dist.plt中ptch-psi的图,颜色表示数密度
+轨道x-z
+
   
   
   
