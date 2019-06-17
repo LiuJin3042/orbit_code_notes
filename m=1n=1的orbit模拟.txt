@@ -27,11 +27,14 @@
   76行:nplot,运行模式.
   243行:shelldep,粒子初始按照球壳分布,能量固定,俯仰角随机
   244行:sampledep,由transp生成的分布
-
   
+1. 设置ripple表达公式
+>> vi eqsub.f
+  设置r1(j,k)  
+  阅读李吉波文献,如何设置ripple
   
-  
-  
+1. 设置NTM模  
+  通行粒子,捕获粒子受到NTM的影响.
   
   
   
