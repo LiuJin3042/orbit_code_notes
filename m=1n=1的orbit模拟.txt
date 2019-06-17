@@ -1,3 +1,4 @@
+在JET位形下计算m=n=1的扰动
 1. 修改平衡文件
 >> vi eqs.f
   20行:numeric=1.上面的注释:如果netcdf=1,就用map01.cdf作为平衡文件
@@ -27,14 +28,23 @@
   76行:nplot,运行模式.
   243行:shelldep,粒子初始按照球壳分布,能量固定,俯仰角随机
   244行:sampledep,由transp生成的分布
-  
+
+导入ripple公式  
 1. 设置ripple表达公式
 >> vi eqsub.f
   设置r1(j,k)  
   阅读李吉波文献,如何设置ripple
   
+计算NTM模
 1. 设置NTM模  
-  通行粒子,捕获粒子受到NTM的影响.
+  通行粒子,捕获粒子受到NTM的影响.分布可以任意:shelldep,
+  能量30-60随机,俯仰角+-1的
+  (捕获粒子),看FILD信号,俯仰角0.1的(通行粒子)的信号.
+
+扩散系数如何计算,选取
+文献:Scalings of energetic particle transport by ion temperature gradient
+microturbulencea…
+  delta r^2/p1_i^2 - t 的图像得到扩散系数,扩散系数和能量的关系.
   
   
   
