@@ -1,3 +1,5 @@
+function pp_distf()
+% final distribution of particles in x vs z from distf.plt
 
 close all
 m=importdata('../orbit_results/distf.plt',' ',5);% 6 rows for the column header.
@@ -79,5 +81,5 @@ mesh(X1,Y1,Z1);
 xlabel('X/cm','FontSize',16)
 ylabel('Z/cm','FontSize',16)
 set(gca,'FontSize',16)
-saveas(gcf,'p_p_distf.fig')
-saveas(gcf,'p_p_distf.png')
+saveas(gcf,'../pictures/p_p_distf.fig')
+saveas(gcf,'../pictures/p_p_distf.png')

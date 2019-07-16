@@ -1,5 +1,6 @@
 function pp_dist()
 % this function gives the plot of lambda vs psi_p/psi_w
+% from the initial distribution of particles dist.f
 
 close all
 %% read data

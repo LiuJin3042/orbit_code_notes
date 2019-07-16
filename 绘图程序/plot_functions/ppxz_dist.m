@@ -1,7 +1,7 @@
-clear 
-close all
-clc
-m=importdata('dist.plt',' ',5);% 6 rows for the column header.
+function ppxz_dist()
+% this function plots initial XZ from wall.plt and lambda vs phi_w/phi_s
+% from dist.plt
+m=importdata('../orbit_results/dist.plt',' ',5);% 6 rows for the column header.
 dist=m.data;
 pol=dist(:,1);
 thet=dist(:,2);
@@ -52,6 +52,8 @@ for l=1:num
     %end
     end
 end
+
+%% lambda vs phi_p/phi_w
 figure(1)
 subplot(1,2,1)
 [X,Y]=ndgrid(poli,ptchi);
@@ -65,18 +67,20 @@ pcolor(X1,Y1,Z1);
 %colormap(hsv)
 shading flat
 %pcolor(X,Y,g);
-xlabel('\psi_{p}/\psi_{w}','FontSize',16)
-ylabel('v_{||}/v','FontSize',16)
+xlabel('$\psi_{p}/\psi_{w}$','FontSize',16,'interpreter','latex')
+ylabel('$v_{//}/v$','FontSize',16,'interpreter','latex')
 set(gca,'FontSize',16,'LineWidth',3)
+
+%% X vs Z from wall.plt
 subplot(1,2,2)
-m=importdata('wall.plt',' ',2);
+m=importdata('../orbit_results/wall.plt',' ',2);
 wall=m.data;
 xw=wall(:,1);
 zw=wall(:,2);
 plot(x,z,'r.',xw,zw,'k-','LineWidth',3,'MarkerSize',8)
-xlabel('X/cm','FontSize',16)
-ylabel('Z/cm','FontSize',16)
+xlabel('$X/cm$','FontSize',16,'interpreter','latex')
+ylabel('$Z/cm$','FontSize',16,'interpreter','latex')
 grid on
 set(gca,'FontSize',16,'LineWidth',3)
-saveas(gcf,'p_p_dist.fig')
-saveas(gcf,'p_p_dist.png')
+saveas(gcf,'../pictures/p_p_dist.fig')
+saveas(gcf,'../pictures/p_p_dist.png')
