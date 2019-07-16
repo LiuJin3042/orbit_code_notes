@@ -9,6 +9,6 @@
 递交:qsub job.pbs
 结果:orbit.out
 traj1.plt,traj2.plt,粒子运行轨迹
-fbm_dist.dat 粒子分布
+fbm_dist.dat 初始粒子分布
 eqs.f 设备参数
 ptrb.dat 扰动数据

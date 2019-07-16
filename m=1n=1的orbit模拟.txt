@@ -15,7 +15,6 @@
   nmod:n的值
   amp:幅度
   omegv:频率,以kHz为单位.omeg0是归一化的频率.
-  modes:带入几个模进入计算
   63行开始:选择扰动模型
 3. 在主程序选择扰动
 >> vi orbit.F
