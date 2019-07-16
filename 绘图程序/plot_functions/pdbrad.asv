@@ -1,8 +1,4 @@
-function pdbrad()
-% this function give the plot of sqrt(phi_p/phi_w) vs q & alpha and 
-% sqrt(phi_p/phi_w) vs q & delta Br
-
-%% read data
+clear;
 close all;
 md=importdata('../orbit_results/dbrad.plt',' ',1);
 md1=importdata('../orbit_results/aharmonics.plt',' ',3);
@@ -20,7 +16,7 @@ x=aharmonics(:,1);
 %% sqrt(phi_p/phi_w) vs q & alpha
 figure
 % vectors after position means the proportion of picture to the screen
-subplot('Position',[0.075 0.15 0.3 0.8])
+subplot('Position',[0.1 0.15 0.3 0.8])
 set(gcf,'Units','centimeters','Position',[6 6 20 15]);
 for j=1:n-1
 a=aharmonics(:,j+1);

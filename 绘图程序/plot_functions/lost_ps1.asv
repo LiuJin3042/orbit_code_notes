@@ -1,7 +1,6 @@
 function lost_ps1()
 % this function plots phi vs E, lambda vs E
 
-%% data cleaning 
 close all
 m=importdata('../orbit_results/lost.plt',' ',6);% 6 rows for the column header.
 lost=m.data;
@@ -38,18 +37,16 @@ for l=1:num
     end
     %end
 end
-
-%% phi vs E
 figure(1)
 [X,Y]=ndgrid(ei,pi);
 contour(X,Y,f);
 %shading interp
 xlabel('$E/keV$','FontSize',16,'interpreter','latex')
 ylabel('$P_{\phi}$','FontSize',16,'interpreter','latex')
-saveas(gcf,'../pictures/phi_E_contour.fig')
-saveas(gcf,'../pictures/phi_E_contour.png')
+saveas(gcf,'../pictures/angle_E_contour.fig')
+saveas(gcf,'../pictures/angle_E_co.png')
 
-%% lambda vs E
+
 p1min=-0.0;
 p1max=1;
 n3=20;

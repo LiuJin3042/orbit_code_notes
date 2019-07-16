@@ -1,7 +1,7 @@
-clear
+% not rewritten yet
 close all
 A=1e-4;
-m=importdata('poink.plt',' ',2);
+m=importdata('../orbit_results/poink.plt',' ',2);
 poink=m.data;
 p=poink(:,1);
 t=poink(:,2);
@@ -23,5 +23,5 @@ subplot(1,3,3)
 plot(p,t,'.','MarkerSize',8)
 xlabel('\psi_{p}')
 ylabel('\theta')
-saveas(gcf,'poink.fig')
-saveas(gcf,'poink.png')
+saveas(gcf,'../pictures/poink.fig')
+saveas(gcf,'../pictures/poink.png')
