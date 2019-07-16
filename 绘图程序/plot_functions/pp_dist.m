@@ -1,7 +1,9 @@
-clear 
+function pp_dist()
+% this function gives the plot of lambda vs psi_p/psi_w
+
 close all
-clc
-m=importdata('dist.plt',' ',5);% 6 rows for the column header.
+%% read data
+m=importdata('../orbit_results/dist.plt',' ',5);% 6 rows for the column header.
 dist=m.data;
 pol=dist(:,1);
 thet=dist(:,2);
@@ -52,6 +54,8 @@ for l=1:num
     %end
     end
 end
+
+%% plotting psi_p/psi_w
 figure(1)
 [X,Y]=ndgrid(poli,ptchi);
 %contour(X,Y,f);
@@ -64,8 +68,8 @@ pcolor(X1,Y1,Z1);
 %colormap(hsv)
 shading flat
 %pcolor(X,Y,g);
-xlabel('\psi_{p}/\psi_{w}','FontSize',16)
-ylabel('v_{||}/v','FontSize',16)
+xlabel('$\psi_{p}/\psi_{w}$','FontSize',16,'interpreter','latex')
+ylabel('$v_{//}/v$','FontSize',16,'interpreter','latex')
 set(gca,'FontSize',16)
-saveas(gcf,'p_p_dist.fig')
-saveas(gcf,'p_p_dist.png')
+saveas(gcf,'../pictures/p_p_dist.fig')
+saveas(gcf,'../pictures/p_p_dist.png')
