@@ -1,14 +1,9 @@
 function FILD()
-% this function gives the plot of N_loss vs t, N_loss vs ptch, N_loss in
-% phase space.
-% output folder is 'pictures'
+% This function gives the plot of N_loss vs t, N_loss vs ptch, N_loss in
+% phase space from particles hit the FILD.
+% Output folder is 'pictures'
 
 %% read files and data cleaning
-% creat a new dir to put pictures
-% ignore the warning of exsisting files
-warning off
-close all
-mkdir('../pictures')
 % creat a file to brief the output
 filename='../lost_FILD.txt';
 fid=fopen(filename,'w');

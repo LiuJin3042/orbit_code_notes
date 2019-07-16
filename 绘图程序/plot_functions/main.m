@@ -1,3 +1,5 @@
+warning off
+mkdir('../pictures')
 FILD()
 FILD_ps1()
 FILD_ps2()
@@ -7,3 +9,4 @@ safety_factor(shot,t)
 pdbrad()
 pp_dist()
 ppxz_dist()
+ps_traj()

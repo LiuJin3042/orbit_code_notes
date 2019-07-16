@@ -156,8 +156,8 @@ ph1=phi1/pi*180;
 str=['\theta=' '[' num2str(theta0) ',' num2str(theta1) ']'];
 str1=['\phi=' '[' num2str(ph0) ',' num2str(ph1) ']'];
 title([str ', ' str1])
-saveas(gcf,'pz_E_FILD.fig')
-saveas(gcf,'pz_E_FILD.png')
+saveas(gcf,'../pictures/pz_E_FILD.fig')
+saveas(gcf,'../pictures/pz_E_FILD.png')
 
 p1min=-0.0;
 p1max=1;

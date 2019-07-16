@@ -1,10 +1,8 @@
 function FILD_ps2()
-% this function gives the relation between E and phi, also between lambda
-% and E
+% this function selects particles hit the FILD and plot them.
+% gives the relation between E and phi, also between lambda and E
 
 close all
-warning off
-mkdir('../pictures')
 
 m=importdata('../orbit_results/lost.plt',' ',6);% 6 rows for the column header.
 lost=m.data;
