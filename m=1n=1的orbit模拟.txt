@@ -1,7 +1,8 @@
 在JET位形下计算m=n=1的扰动
 1. 修改平衡文件
 >> vi eqs.f
-  20行:numeric=1.上面的注释:如果netcdf=1,就用map01.cdf作为平衡文件
+  20行:numeric=1.数值的.上面的注释:如果netcdf=1,就用map01.cdf作为平衡文件
+    numeric=0,用解析的平衡
   51行:设置大半径(rmaj)
   107行:eps,小半径除大半径,设置小半径
   110行:q,安全因子.q0,qr2,qr3用来拟合q
