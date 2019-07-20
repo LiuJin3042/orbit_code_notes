@@ -1,7 +1,7 @@
 warning off
 mkdir('../pictures')
 %% a quick peak of lost data to decide the position of FILD
-m = importdata('../orbit_results/lost.plt');
+m = importdata('../orbit_results/dist.plt');
 lost = m.data;
 thet = lost(:,2);
 thet = rem(thet,2*pi);
