@@ -1,3 +1,3 @@
-lost particle number:1053
-lost particle number in ptch [0.4,0.75]:920
-lost particle number in ptch [0.75,1.0]:133
+lost particle number:30000
+lost particle number in ptch [0.4,0.75]:19223
+lost particle number in ptch [0.75,1.0]:10777

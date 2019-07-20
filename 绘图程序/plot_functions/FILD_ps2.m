@@ -1,4 +1,4 @@
-function FILD_ps2()
+function FILD_ps2(lost,thet0,thetm,zet0,zetm)
 % this function selects particles hit the FILD and plot them.
 % gives the relation between E and phi, also between lambda and E
 
@@ -16,10 +16,10 @@ pz=lost(:,8);
 t=lost(:,13);
 n=length(thet);
 k=0;
-t0=-pi/30; % FILD position midplane [-thet,thet], -thet=t0, thet=tm
-tm=pi/30;  % or FILD position  [t0, tm]
-phi0=-pi/6.0;  % FILD position midplane [phi0,phi1]
-phi1=pi/6.0;   % or FILD position [-phi, phi], -phi=phi0, phi=phi1
+t0=thet0; % FILD position midplane [-thet,thet], -thet=t0, thet=tm
+tm=thetm;  % or FILD position  [t0, tm]
+phi0=zet0;  % FILD position midplane [phi0,phi1]
+phi1=zetm;   % or FILD position [-phi, phi], -phi=phi0, phi=phi1
 ptch0=0.5;
 en0=64;
 time0=2.0;

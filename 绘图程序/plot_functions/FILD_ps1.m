@@ -1,9 +1,7 @@
-function FILD_ps1()
+function FILD_ps1(lost,thet0,thetm,zet0,zetm)
 % this function gives the picture of pz vs E, lambda vs E
 
 close all
-m=importdata('../orbit_results/lost.plt',' ',6);% 6 rows for the column header.
-lost=m.data;
 thet=lost(:,2);
 zet=lost(:,3);
 x=lost(:,4);
@@ -11,13 +9,13 @@ z=lost(:,5);
 en=lost(:,6);
 ptch=lost(:,7);
 pz=lost(:,8);
-t=lost(:,13);
+type=lost(:,13);
 n=length(thet);
 k=0;
-t0=-pi/30; % FILD position midplane [-thet,thet], -thet=t0, thet=tm
-tm=pi/30;  % or FILD position  [t0, tm]
-phi0=-pi/6.0;  % FILD position midplane [phi0,phi1]
-phi1=pi/6.0;   % or FILD position [-phi, phi], -phi=phi0, phi=phi1
+t0=thet0; % FILD position midplane [-thet,thet], -thet=t0, thet=tm
+tm=thetm;  % or FILD position  [t0, tm]
+phi0=zet0;  % FILD position midplane [phi0,phi1]
+phi1=zetm;   % or FILD position [-phi, phi], -phi=phi0, phi=phi1
 ptch0=0.5;
 en0=64;
 time0=2.0;
@@ -215,6 +213,3 @@ saveas(gcf,'../pictures/angle_E_FILD.png')
 %shading interp
 %contour(X,Y,g);
 %shading interp
-
-            
-

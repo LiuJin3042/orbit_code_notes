@@ -1,10 +1,8 @@
-function lost_ps1()
+function lost_ps1(lost)
 % this function plots phi vs E, lambda vs E
 
 %% data cleaning 
 close all
-m=importdata('../orbit_results/lost.plt',' ',6);% 6 rows for the column header.
-lost=m.data;
 en=lost(:,6);
 ptch=lost(:,7);
 pz=lost(:,8);

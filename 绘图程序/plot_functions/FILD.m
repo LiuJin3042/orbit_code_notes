@@ -1,14 +1,18 @@
-function FILD()
+function FILD(lost,thet0,thetm,zet0,zetm)
 % This function gives the plot of N_loss vs t, N_loss vs ptch, N_loss in
 % phase space from particles hit the FILD.
 % Output folder is 'pictures'
+% FILD position midplane [-thet,thet], -thet=t0, thet=tm
+% or FILD position  [t0, tm]
+% FILD position midplane [phi0,phi1]
+% or FILD position [-phi, phi], -phi=phi0, phi=phi1
 
 %% read files and data cleaning
 % creat a file to brief the output
+close all
 filename='../lost_FILD.txt';
 fid=fopen(filename,'w');
 m=importdata('../orbit_results/mupplane.plt',' ',1);
-m1=importdata('../orbit_results/lost.plt',' ',6);% 6 rows for the column header.
 m3=importdata('../orbit_results/stag.plt',' ',1);
 stag=m3.data;
 a=stag(:,1);
@@ -23,7 +27,6 @@ v3=mup(:,6);
 r3=mup(:,7);
 t3=mup(:,8);
 w3=mup(:,9);
-lost=m1.data;
 thet=lost(:,2);
 zet=lost(:,3);
 x=lost(:,4);
@@ -34,10 +37,10 @@ P=lost(:,8);
 t=lost(:,13);
 n=length(thet);
 k=0;
-t0=-pi/30; % FILD position midplane [-thet,thet], -thet=t0, thet=tm
-tm=pi/30;  % or FILD position  [t0, tm]
-phi0=-pi/6.0;  % FILD position midplane [phi0,phi1]
-phi1=pi/6.0;   % or FILD position [-phi, phi], -phi=phi0, phi=phi1
+t0=thet0; % FILD position midplane [-thet,thet], -thet=t0, thet=tm
+tm=thetm;  % or FILD position  [t0, tm]
+phi0=zet0;  % FILD position midplane [phi0,phi1]
+phi1=zetm;   % or FILD position [-phi, phi], -phi=phi0, phi=phi1
 ptch0=0.5;
 en0=64;
 time0=2.0;
@@ -114,6 +117,7 @@ if pt==4
    end
   end
 end
+
 en1=lost1(:,6);
 ptch1=lost1(:,7);
 P1=lost1(:,8);
