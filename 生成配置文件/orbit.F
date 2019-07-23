@@ -73,11 +73,11 @@ cccccccc-  Perturbations - nptrbav = 1, calc potential from alpha
 cccccccc-  Perturbations - nptrbav = 2, calc alpha and potential from xi
 cccc
 cccc  CHOICE OF RUN, PLOTS
-      nplot = 1
+      nplot = 2
       nploteq = 1
 cc
 ccccc NUMBER OF PARTICLES-  
-        nprt = 30000    !   standard  
+        nprt = 1000
 	if(nplot.eq.3) nprt = 30  ! poincare 
 	if(nplot.eq.9) nprt = 40    ! kinetic poincare
 	if(nplot.eq.11) nprt = 4000    ! stoch and FLI
@@ -92,7 +92,7 @@ c    the rng is initialized with the date and time.
       iseed = 0
 ccc
 ccccc SIMULATION RUN TIME, in on-axis toroidal transits
-	ntor = 1500   !	100 with 10000 particles
+    ntor = 2500
 	if(nplot.eq.9) ntor = 200   !   kinetic poincare
 	if(nplot.eq.8) ntor = 100   ! mode excitation
 	if(nplot.eq.11) ntor = 50   ! rotation
@@ -106,7 +106,7 @@ ccc   READ EQUILIBRIUM DATA IN SPDATA
     
 ccc      call drev    ! reverses drift direction
 cccc  FIELD STRENGTH
-      bkg = 18 !  NSTX
+      bkg = 23
 cccc
 cccc  numerical equilibrium spdata read
 cccc  can set ripple zero with krip=0
@@ -124,16 +124,16 @@ ccc    4= read delta B perturbation
       pamp =1000    ! potential amplitude, Kev
 ccccc
 ccc   PARTICLE DISTRIBUTION, see shelldep, poindep
-        polo = .5*pw   !  initial flux surface
-	p1 = .01*pw   ! surface for Poincare
-	p2 = .99*pw   ! surface for Poincare
-        pchi = -0.1313    !  pitch
+        polo = 0.5*pw
+    p1 = 0.01*pw
+    p2 = 0.99*pw
+        pchi = 0.7
 
 cccccc
 ccccc  PARTICLE PARAMETERS
       zprt = 1.D0
-      prot = 2.D0
-      ekev = 35.198
+      prot = 1.D0
+      ekev = 93
 cccccccccc
 cccc-  DISTRIBUTION PARAMETERS -for stochastic, either stochmu or stoche
 	mubk = 10    !   mu*B0 in keV
@@ -241,9 +241,9 @@ ccc sampledep reads from TRANSP data
 ccc    poincare,  alphas,  fulldep,  read distf, btail
 	tdum = -2.6983
     call shelldep
-        if(nplot.eq.1) call shelldep(tdum)
+cc        if(nplot.eq.1) call shelldep(tdum)
 cc        if(nplot.eq.2) call shelldep(tdum)
-        if(nplot.eq.2) call sampledep   !  read from TRANSP
+cc        if(nplot.eq.2) call sampledep   !  read from TRANSP
 ccc	if(nplot.eq.2) call fulldepe   !  fixed E
 ccc	if(nplot.eq.2) call fulldepmu   !  fixed mu
 ccc	if(nplot.eq.2) call distread  !  Continuation using dumped dist

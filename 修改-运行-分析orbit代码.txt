@@ -46,6 +46,8 @@
             shelldep,粒子初始均匀分布在polo磁面上,能量固定,俯仰角随机
             sampledep,由transp生成的分布
             poindep,截面p1,p2之间均匀分布粒子
+          182行:
+            npert = 1, 调用ampa, 就是perturb.f中的a1
 替换数据
     归档压缩数据文件
         使用cd 进入到数据的目录
