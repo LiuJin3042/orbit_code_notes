@@ -1,0 +1,89 @@
+服务器信息
+    账号和密码
+    user:yulimin
+    Passwd:Zmr6mg3K
+    工作目录路径 
+    cd /scratch/yulimin/works/ORBIT
+    递交任务: qsub job.pbs
+    查询状态:  qstat -u yulimin
+    下载openvpn网址: http://openvpn.ustc.edu.cn/
+    shenma服务器网址：http://hpc.ipp.ac.cn/
+修改源代码
+    1. 修改平衡文件
+        >> vi eqs.f
+          20行:numeric=1.数值的.上面的注释:如果numeric=1且netcdf=1,就用map01.cdf作为平衡文件
+            numeric=0,用解析的平衡,调用subroutine tok0(88行向下)
+          51行:设置大半径(rmaj)
+          62行:设置波纹krip
+            按照李吉波文献中的参数设置了EAST的波纹.
+            设置波纹的文件为eqsub.f,999行开始.
+            要调用EAST的波纹,设置krip=6
+          88行:subroutine tok0
+              107行:eps,小半径除大半径,设置小半径
+              110行:q,安全因子.q0-截距,qed-边缘的q值,qx-某点处的q值,rqx-该点的横坐标
+                由以上几点就可以确定q的三阶展开式
+        >> make FC=pgf90 eqs # 编译
+        >> ./eqs #生成平衡文件,忽略warning
+    2. 修改扰动
+        >> vi perturb.f
+          18行开始:
+              modes:模数
+              mmod:m的值
+              nmod:n的值
+              amp:幅度
+              omegv:频率,以kHz为单位.omeg0是归一化的频率.
+      63行开始:选择扰动模型,解析的
+    3. 在主程序选择扰动
+        >> vi orbit.F
+          npert=1,有磁扰动,2有势扰动,3两者都有
+          127行:polo,起始位置,p1,p2,庞加莱起始结束截面  
+          134行:zprt电荷数,prot质量,ekev能量
+          109行:bkg磁场强度,千高斯
+          95行:ntor,运行时间,粒子绕环2500转
+          80行:nprt,粒子数
+          76行:nplot,运行模式.
+          243行:
+            shelldep,粒子初始均匀分布在polo磁面上,能量固定,俯仰角随机
+            sampledep,由transp生成的分布
+            poindep,截面p1,p2之间均匀分布粒子
+替换数据
+    归档压缩数据文件
+        使用cd 进入到数据的目录
+        tar -czvf data.tar.gz * # *代表目录下所有文件，也可以手动输入文件名
+    拷贝文件到自己的工作目录
+        cp 源文件目录 目标目录 # cp /scratch/yulimin/works/ORBIT_BACKUP/81450/81450/data.tar.gz /scratch/yulimin/works/TOKAMAK/LJ/ORBIT/
+    解压文件
+        tar -xzvf data.tar.gz
+    重命名并替换文件
+        mv [被改的文件名] [改成的文件名] # mv fbm_distA9.dat fbm_dist.dat
+        # mv spdataA9 spdata
+        # mv map01_81450A9.cdf map01.cdf
+    编译orbit并提交运行
+单独编译
+    1. 编辑完orbit.F, 进行编译
+        编译:make FC=pgf90
+        递交:qsub job.pbs
+    2. 将编译后的 'orbit' 文件和 orbit.F,spdata,fbm_dist.dat,job.pbs 拖到新文件夹里.
+    3. 在新文件夹里提交任务,并运行. 运行成功后新文件夹中下载.plt文件.
+输出结果
+    orbit.out，运行简要说明
+    traj1.plt,traj2.plt,粒子运行轨迹
+    fbm_dist.dat 初始粒子分布
+    eqs.f 设备参数
+    ptrb.dat 扰动数据
+    dist.plt 约束粒子的分布情况
+    lost.plt
+        #    AC  FILE81450A  TIME     =4.2899     +
+        #  1, co-pass confined,  2, co-pass lost                                                            
+        #  3, ctr-pass confined, 4, ctr-pass lost                                                           
+        #  5, trapped confined,  6, trapped lost                                                            
+        #  7, stagnation, 8, conf potato, 9, lost potato                                                    
+        # lost-pol/pw(归一化的磁通),thet(极向角),zet(环向角),x,z,en(能量),ptch(俯仰角),P(动量),P0(初
+        动量),mu*B(磁矩),pol0初始粒子在磁面上的位置,V,k(粒子序号),     type(粒子类型,2-5行的说明)
+判断模拟结果好坏
+    增加粒子个数
+    与其他装置实验的结果比较是否有出入
+    时间空间步长减小是否收敛
+    .p文件>作图命令
+    .f文件>源文件
+    .plt文件>输出文件

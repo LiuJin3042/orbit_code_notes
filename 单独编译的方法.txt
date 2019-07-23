@@ -1,3 +1,0 @@
-1. 编辑完orbit.F, 进行编译
-2. 将编译后的 'orbit' 文件和 orbit.F,spdata,fbm_dist.dat,job.pbs 拖到新文件夹里.
-3. 在新文件夹里提交任务,并运行. 运行成功后新文件夹中下载.plt文件.
