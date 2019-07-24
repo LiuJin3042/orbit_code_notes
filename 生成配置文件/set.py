@@ -8,12 +8,13 @@ Read the configuration file, read the file to be changed, and write the new file
 """
 
 from configuration import *
-
+from commands import getstatusoutput as gso
 
 """
 read and rewrite eqs.f
 output file should be in the same dir
 """
+# read files - rewrite certain lines - write to new files
 r_eqs = open('./source_file/eqs.f', 'r')
 w_eqs = open('./eqs.f', 'w')
 eqs = r_eqs.readlines()
@@ -54,7 +55,7 @@ mode_params = ''
 for i in range(modes):
     j = i+1
     single_set =  '      harm(%d) = ' + str(harm[i]) + '\n      mmod(%d) = ' + \
-    str(mmod[i]) + '\n      nmod(%d) = ' + str(nmod[i]) + '\n      amd(%d) = ' + \
+    str(mmod[i]) + '\n      nmod(%d) = ' + str(nmod[i]) + '\n      amp(%d) = ' + \
     str(float(amp[i])) + '\n      omegv(%d) = ' + str(float(omegv[i])) + '*2.D3*pi/omeg0\n      alfv(%d) = '+ \
     str(alfv[i]) + '\n'
     mode_params += single_set%(j,j,j,j,j,j)
@@ -93,22 +94,40 @@ orbit = r_orbit.readlines()
 orbit[117] = '        npert = ' + str(npert) + '\n'
 if pdist != 2:
     orbit[126] = '        polo = ' + str(polo) + '*pw\n'
-    orbit[127] = '    p1 = ' + str(p1) + '*pw\n'
-    orbit[128] = '    p2 = ' + str(p2) + '*pw\n'
+    orbit[127] = '        p1 = ' + str(p1) + '*pw\n'
+    orbit[128] = '        p2 = ' + str(p2) + '*pw\n'
     orbit[129] = '        pchi = ' + str(pchi) + '\n'
     orbit[133] = '      zprt = ' + str(zprt) + '.D0\n'
     orbit[134] = '      prot = ' + str(prot) + '.D0\n'
     orbit[135] = '      ekev = ' + str(ekev) + '\n'
     orbit[108] = '      bkg = ' + str(bkg) + '\n'
-    orbit[94] = '    ntor = ' + str(ntor) + '\n'
+    orbit[94] = '        ntor = ' + str(ntor) + '\n'
     orbit[79] = '        nprt = ' + str(nprt) + '\n'
 orbit[75] = '      nplot = ' + str(nplot) + '\n'
 ndist = ['shelldep', 'sampledep', 'poindep']
-orbit[242] = '    call ' + ndist[pdist-1] + '\n'
+orbit[242] = '        call ' + ndist[pdist-1] + '\n'
 
 w_orbit.writelines(orbit)
 r_orbit.close()
 w_orbit.close()
+
+# make files
+status, output = gso('make FC=pgf90 eqs')
+print status, output
+status, output = gso('./eqs')
+print status, output
+status, output = gso('make FC=pgf90')
+print status, output
+# shell will take input 'n' as a variable rather than a string
+# so this step is necessary
+n = 'n'
+y = 'y'
+submit = input('configuration is completed, submit the mission?(y/n)')
+if submit == 'y':
+    status, output = gso('qsub job.pbs')
+    print status, output
+else:
+    print 'not submitted'
 
 
 
