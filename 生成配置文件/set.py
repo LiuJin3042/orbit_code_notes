@@ -8,6 +8,7 @@ Read the configuration file, read the file to be changed, and write the new file
 """
 
 from configuration import *
+from commands import getstatusoutput as gso
 import sys
 
 """
@@ -113,31 +114,26 @@ w_orbit.writelines(orbit)
 r_orbit.close()
 w_orbit.close()
 
-def make_files():
-    # make files
-    cmd = '''
-    from commands import getstatusoutput as gso
-    status, output = gso('make FC=pgf90 eqs')
-    print status, output
-    status, output = gso('./eqs')
-    print status, output
-    status, output = gso('make FC=pgf90')
-    print status, output
-    # shell will take input 'n' as a variable rather than a string
-    # so this step is necessary
-    n = 'n'
-    y = 'y'
-    submit = input('configuration is completed, submit the mission?(y/n)')
-    if submit == 'y':
-        status, output = gso('qsub job.pbs')
-        print status, output
-    else:
-        print 'not submitted'
-    '''
-    exec(cmd)
 
-if sys.version[0] == '2':
-    make_files()
+# make file 
+status, output = gso('make FC=pgf90 eqs')
+print status, output
+status, output = gso('./eqs')
+print status, output
+status, output = gso('make FC=pgf90')
+print status, output
+# shell will take input 'n' as a variable rather than a string
+# so this step is necessary
+n = 'n'
+y = 'y'
+submit = input('configuration is completed, submit the mission?(y/n)')
+if submit == 'y':
+    status, output = gso('qsub job.pbs')
+    print status, output
+else:
+    print 'not submitted'
+
+
 
 
 
