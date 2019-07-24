@@ -92,7 +92,7 @@ c    the rng is initialized with the date and time.
       iseed = 0
 ccc
 ccccc SIMULATION RUN TIME, in on-axis toroidal transits
-    ntor = 2500
+        ntor = 2500
 	if(nplot.eq.9) ntor = 200   !   kinetic poincare
 	if(nplot.eq.8) ntor = 100   ! mode excitation
 	if(nplot.eq.11) ntor = 50   ! rotation
@@ -125,8 +125,8 @@ ccc    4= read delta B perturbation
 ccccc
 ccc   PARTICLE DISTRIBUTION, see shelldep, poindep
         polo = 0.5*pw
-    p1 = 0.01*pw
-    p2 = 0.99*pw
+        p1 = 0.01*pw
+        p2 = 0.99*pw
         pchi = 0.7
 
 cccccc
@@ -240,7 +240,7 @@ ccc shelldep gives a general uniform distribution.
 ccc sampledep reads from TRANSP data
 ccc    poincare,  alphas,  fulldep,  read distf, btail
 	tdum = -2.6983
-    call shelldep
+        call shelldep
 cc        if(nplot.eq.1) call shelldep(tdum)
 cc        if(nplot.eq.2) call shelldep(tdum)
 cc        if(nplot.eq.2) call sampledep   !  read from TRANSP

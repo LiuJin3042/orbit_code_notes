@@ -8,7 +8,7 @@ Read the configuration file, read the file to be changed, and write the new file
 """
 
 from configuration import *
-from commands import getstatusoutput as gso
+import sys
 
 """
 read and rewrite eqs.f
@@ -25,10 +25,12 @@ if numeric == 0:
     eqs[61] = '      krip = ' + str(krip) + '\n'
     eqs[109] = '      q0 = ' + str(q0) + '\n'
     eqs[110] = '      qed = ' + str(qed) + '\n'
+    eqs[111] = '      rqx = ' + str(rx) + '\n'
+    eqs[113] = '      qx = ' + str(float(qrx)) + '\n'
     qr3 = (qrx-q0+rx**2*q0-rx**2*qed)/(rx**2*(rx-1))
     qr2 = qed-q0-qr3
-    eqs[126] = '      qr2 = ' + str(qr2)[0:5] + '\n'
-    eqs[127] = '      qr3 = ' + str(qr3)[0:5] + '\n'
+#    eqs[126] = '      qr2 = ' + str(qr2)[0:5] + '\n'
+#    eqs[127] = '      qr3 = ' + str(qr3)[0:5] + '\n'
     
 w_eqs.writelines(eqs)
 r_eqs.close()
@@ -111,25 +113,31 @@ w_orbit.writelines(orbit)
 r_orbit.close()
 w_orbit.close()
 
-# make files
-status, output = gso('make FC=pgf90 eqs')
-print status, output
-status, output = gso('./eqs')
-print status, output
-status, output = gso('make FC=pgf90')
-print status, output
-# shell will take input 'n' as a variable rather than a string
-# so this step is necessary
-n = 'n'
-y = 'y'
-submit = input('configuration is completed, submit the mission?(y/n)')
-if submit == 'y':
-    status, output = gso('qsub job.pbs')
+def make_files():
+    # make files
+    cmd = '''
+    from commands import getstatusoutput as gso
+    status, output = gso('make FC=pgf90 eqs')
     print status, output
-else:
-    print 'not submitted'
+    status, output = gso('./eqs')
+    print status, output
+    status, output = gso('make FC=pgf90')
+    print status, output
+    # shell will take input 'n' as a variable rather than a string
+    # so this step is necessary
+    n = 'n'
+    y = 'y'
+    submit = input('configuration is completed, submit the mission?(y/n)')
+    if submit == 'y':
+        status, output = gso('qsub job.pbs')
+        print status, output
+    else:
+        print 'not submitted'
+    '''
+    exec(cmd)
 
-
+if sys.version[0] == '2':
+    make_files()
 
 
 
