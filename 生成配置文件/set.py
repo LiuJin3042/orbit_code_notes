@@ -143,12 +143,9 @@ if sys.version[0] == '2':
         gso('cp {orbit,orbit.F,spdata,fbm_dist.dat,job.pbs} ./%s'%des_folder)
     elif pdist == 2:
         # numeric distribution
-        gso('cp {orbit,orbit.F,fbm_dist.dat,job.pbs} ./%s'%des_folder)
-    elif numeric == 1:
-        # numeric balance
-        gso('cp {orbit,orbit.F,spdata,job.pbs} ./%s'%des_folder)
+        gso('cp {orbit,orbit.F,fbm_dist.dat,job.pbs,spdata} ./%s'%des_folder)
     else:
-        gso('cp {orbit,orbit.F,job.pbs} ./%s'%des_folder)
+        gso('cp {orbit,orbit.F,spdata,job.pbs} ./%s'%des_folder)
     # let the user choose weather to submit the job
     submit = raw_input('configuration is completed, submit the mission?(y/n) ')
     if submit == 'y':
@@ -159,11 +156,12 @@ if sys.version[0] == '2':
             status, output = gso('qstat')
             while output != '':
                 print(output)
-                time.sleep(1)
+                time.sleep(60)
                 status, output = gso('qstat')
-                gso('echo -e "\n\n\n\n\n"')
+                print('\n\n\n\n\n')
             status, output = gso('echo "job is done"')
             print(output)
+            gso('mv *.plt orbit.out configuration.py -t %s'%(des_folder))
     else:
         print('not submitted')
 
