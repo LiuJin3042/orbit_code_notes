@@ -10,15 +10,17 @@ Read the configuration file, read the file to be changed, and write the new file
 """
 修改平衡文件eqs.f
 """
+
 # numeric: 平衡的类型,numeric = 1, 数值平衡
 # numeric = 0, 解析平衡, 需要提供设备参数, 包括rmaj和a
 numeric = 0
 if numeric == 0:
-    # 大径, 单位: cm
+    # 大径, 半径, 单位: cm
     rmaj = 165
-    # 小径, 单位: cm
+    # 小径, 直径, 单位: cm
     a = 80
     # 安全因子, q = q0 + qr2*r^2 + qr3*r^3, r是归一化的r
+    # r在源代码中是以rmaj归一, 但是为了便于设置, 这里还是采用以a归一
     # q0: r = 0时的q值
     # qed: r = 1时的q值
     # qrx: r = rx时的q值为qrx. 需要设置qrx.
@@ -103,7 +105,8 @@ if pdist != 2:
     prot = 1
     ekev = 93
 
-
+# comment: 对本文件的目的说明, 可以随意修改, 会被用作新生成的文件夹名称
+comment = 'qed=%s'%qed
 
 
 

@@ -114,8 +114,8 @@ cc- set q0, q(rqx) = qx, qed, -> qr2,qr3
       qx = 2.
       shift = 0.1D0/rmaj   ! shift of plasma center, R = 1
 ccc
-      wk2(2) = (qx-q0+rqx**2*q0-rqx**2*qed)/(rqx**2*(rqx-1))
-      wk2(1) = qed-q0-wk2(2)
+cc      wk2(2) = (eps**2*(qx-q0) - rqx**2*(qed-q0))/(eps**2*rqx**3 - eps**3*rqx**2)
+cc      wk2(1) = ((qed-q0)*rqx**3 - eps**3*(qx-q0))/(eps**2*rqx**3 - eps**3*rqx**2)
       bmat(1) = eps**2
       bmat(3) = eps**3
       bmat(2) = rqx**2

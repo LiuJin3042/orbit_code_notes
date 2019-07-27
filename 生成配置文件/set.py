@@ -7,9 +7,11 @@ Read the configuration file, read the file to be changed, and write the new file
 @author: LJ
 """
 
+from __future__ import division
 from configuration import *
-from commands import getstatusoutput as gso
 import sys
+import time 
+
 
 """
 read and rewrite eqs.f
@@ -21,6 +23,9 @@ w_eqs = open('./eqs.f', 'w')
 eqs = r_eqs.readlines()
 eqs[19] = '      numeric = ' + str(numeric) + '\n'
 if numeric == 0:
+    eps = a/rmaj
+    # convert rx from a normalized to rmaj normalized
+    rx = rx*a/rmaj
     eqs[50] = '        rmaj = ' + str(rmaj) + '\n'
     eqs[106] = '      eps = ' + str(a) + '.D0/rmaj\n'
     eqs[61] = '      krip = ' + str(krip) + '\n'
@@ -28,10 +33,13 @@ if numeric == 0:
     eqs[110] = '      qed = ' + str(qed) + '\n'
     eqs[111] = '      rqx = ' + str(rx) + '\n'
     eqs[113] = '      qx = ' + str(float(qrx)) + '\n'
-    qr3 = (qrx-q0+rx**2*q0-rx**2*qed)/(rx**2*(rx-1))
-    qr2 = qed-q0-qr3
-#    eqs[126] = '      qr2 = ' + str(qr2)[0:5] + '\n'
-#    eqs[127] = '      qr3 = ' + str(qr3)[0:5] + '\n'
+    det_qr = (eps**2*rx**3 - eps**3*rx**2)
+    det_qr2 = (qed-q0)*rx**3 - eps**3*(qrx-q0)
+    det_qr3 = eps**2*(qrx-q0) - rx**2*(qed-q0)
+    qr3 = det_qr3/det_qr
+    qr2 = det_qr2/det_qr
+    eqs[126] = '      qr2 = ' + str(qr2)[0:9] + '\n'
+    eqs[127] = '      qr3 = ' + str(qr3)[0:9] + '\n'
     
 w_eqs.writelines(eqs)
 r_eqs.close()
@@ -115,23 +123,49 @@ r_orbit.close()
 w_orbit.close()
 
 
-# make file 
-status, output = gso('make FC=pgf90 eqs')
-print status, output
-status, output = gso('./eqs')
-print status, output
-status, output = gso('make FC=pgf90')
-print status, output
-# shell will take input 'n' as a variable rather than a string
-# so this step is necessary
-n = 'n'
-y = 'y'
-submit = input('configuration is completed, submit the mission?(y/n)')
-if submit == 'y':
-    status, output = gso('qsub job.pbs')
-    print status, output
-else:
-    print 'not submitted'
+if sys.version[0] == '2':
+    from commands import getstatusoutput as gso
+    # make file 
+    print('making files, please wait')
+    status, output = gso('make FC=pgf90 eqs')
+    print(output)
+    status, output = gso('./eqs')
+    print(output)
+    status, output = gso('make FC=pgf90')
+    print(output)
+    date = time.strftime('%Y%m%d',time.localtime(time.time()))
+    des_folder = date + '-' + comment
+    # remove than creat the folder
+    gso('rm -rf %s'%des_folder)
+    gso('mkdir %s'%des_folder)
+    if pdist*numeric == 2:
+        # numeric balance and distribution
+        gso('cp {orbit,orbit.F,spdata,fbm_dist.dat,job.pbs} ./%s'%des_folder)
+    elif pdist == 2:
+        # numeric distribution
+        gso('cp {orbit,orbit.F,fbm_dist.dat,job.pbs} ./%s'%des_folder)
+    elif numeric == 1:
+        # numeric balance
+        gso('cp {orbit,orbit.F,spdata,job.pbs} ./%s'%des_folder)
+    else:
+        gso('cp {orbit,orbit.F,job.pbs} ./%s'%des_folder)
+    # let the user choose weather to submit the job
+    submit = raw_input('configuration is completed, submit the mission?(y/n) ')
+    if submit == 'y':
+        status, output = gso('qsub ./%s/job.pbs'%des_folder)
+        print(output)
+        monitor = raw_input('monitor the results?(y/n) ')
+        if monitor == 'y':
+            status, output = gso('qstat')
+            while output != '':
+                print(output)
+                time.sleep(1)
+                status, output = gso('qstat')
+                gso('echo -e "\n\n\n\n\n"')
+            status, output = gso('echo "job is done"')
+            print(output)
+    else:
+        print('not submitted')
 
 
 

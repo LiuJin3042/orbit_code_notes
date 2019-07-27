@@ -109,13 +109,13 @@ ccccc- can choose pressure profile, Shafranov shift, and q profile
 cc- set q0, q(rqx) = qx, qed, -> qr2,qr3
       q0 = 1.3
       qed = 4.9
-      rqx = 0.5
+      rqx = 0.24242424242424243
       if(rqx.gt.eps) stop
       qx = 2.0
       shift = 0.1D0/rmaj   ! shift of plasma center, R = 1
 ccc
-      wk2(2) = (qx-q0+rqx**2*q0-rqx**2*qed)/(rqx**2*(rqx-1))
-      wk2(1) = qed-q0-wk2(2)
+cc      wk2(2) = (eps**2*(qx-q0) - rqx**2*(qed-q0))/(eps**2*rqx**3 - eps**3*rqx**2)
+cc      wk2(1) = ((qed-q0)*rqx**3 - eps**3*(qx-q0))/(eps**2*rqx**3 - eps**3*rqx**2)
       bmat(1) = eps**2
       bmat(3) = eps**3
       bmat(2) = rqx**2
@@ -124,8 +124,8 @@ ccc
 cc      call gelg(wk2,bmat,lmax,1,err0,ier) !fit q with matrix inversion
       qr2 = wk2(1)
       qr3 = wk2(2)
-cc      qr2 = 16*3.2
-cc      qr3 = 0.
+      qr2 = 8.5078124
+      qr3 = 14.037890
       write(6,4) q0,qr2,qr3
  4    format('  q0,qr2,qr3 ',1p5e10.2)
 ccccc
