@@ -1024,8 +1024,8 @@ cccc the ripple is given by rdat(pol,thet)*sin(nrip*zet), fit with splines
  13   continue
       return
  60   continue
-ccccc EAST ripple (lijibo )
-ccccc Redi:  xrip=223 cm, wrip=18.3 cm , d0 = 1.4e-5, brip = 1.1
+ccccc EAST ripple (Li Jibo's doctoral thesis: Numerical Simulation 
+ccccc of Fast Ion Corrugation Loss after EAST Neutral Beam Injection, p65 )
       xrip = xc/rmaj*(171.D0-0.0018D0*(z1(j,k)*rmaj/xc)**2)
       wrip = 14.92D0*xc/rmaj
       brip = 0.265D0

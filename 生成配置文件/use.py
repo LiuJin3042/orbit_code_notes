@@ -8,7 +8,7 @@ Created on Wed Aug 14 16:40:57 2019
 import sys
 import time
 from commands import getstatusoutput as gso
-import configuration
+from configuration import *
 
 def monitor():
     # a program to monitor running status
