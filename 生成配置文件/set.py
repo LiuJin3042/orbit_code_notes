@@ -115,7 +115,7 @@ if pdist != 2:
     orbit[94] = '        ntor = ' + str(ntor) + '\n'
     orbit[79] = '        nprt = ' + str(nprt) + '\n'
 orbit[75] = '      nplot = ' + str(nplot) + '\n'
-ndist = ['shelldep', 'sampledep', 'poindep']
+ndist = ['shelldep', 'sampledep', 'poindep', 'poinkdep']
 orbit[242] = '        call ' + ndist[pdist-1] + '\n'
 
 w_orbit.writelines(orbit)
@@ -125,12 +125,11 @@ w_orbit.close()
 
 if sys.version[0] == '2':
     from commands import getstatusoutput as gso
+    import use
+    from yae_sakura import *
+    print(ying)
     # make file 
     print('making files, please wait')
-    status, output = gso('make FC=pgf90 eqs')
-    print(output)
-    status, output = gso('./eqs')
-    print(output)
     status, output = gso('make FC=pgf90')
     print(output)
     date = time.strftime('%Y%m%d',time.localtime(time.time()))
@@ -153,15 +152,8 @@ if sys.version[0] == '2':
         print(output)
         monitor = raw_input('monitor the results?(y/n) ')
         if monitor == 'y':
-            status, output = gso('qstat')
-            while output != '':
-                print(output)
-                time.sleep(60)
-                status, output = gso('qstat')
-                print('\n\n\n\n\n')
-            status, output = gso('echo "job is done"')
-            print(output)
-            gso('mv *.plt orbit.out configuration.py -t %s'%(des_folder))
+            use.monitor()
+            use.pack(des_folder)
     else:
         print('not submitted')
 

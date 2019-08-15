@@ -1017,11 +1017,29 @@ cccc the ripple is given by rdat(pol,thet)*sin(nrip*zet), fit with splines
       if(krip.eq.2) go to 20
       if(krip.eq.4) go to 40
       if(krip.eq.5) go to 50
+      if(krip.eq.6) go to 60
       do 13 j = 1,lsp
       do 13 k = 1,lst
       r1(j,k) = -1.D8
  13   continue
       return
+ 60   continue
+ccccc EAST ripple (lijibo )
+ccccc Redi:  xrip=223 cm, wrip=18.3 cm , d0 = 1.4e-5, brip = 1.1
+      xrip = xc/rmaj*(171.D0-0.0018D0*(z1(j,k)*rmaj/xc)**2)
+      wrip = 14.92D0*xc/rmaj
+      brip = 0.265D0
+      nrip = 16
+      d0 = 1.27D-4
+      do 62 k = 1,lst
+      do 62 j = 1,lsp
+      tau = sqrt((x1(j,k)-xrip)**2 + brip*(z1(j,k))**2)
+      r1(j,k) = d0*b1(j,k)*exp(tau/wrip)
+      r1(j,k) = log(r1(j,k))
+ 62   continue
+      write(6,65)
+ 65   format(' EAST ripple entered')
+      go to 100
  10   continue
 ccccc TFTR ripple (Scott 12/10/85 xrip=244cm, wrip=19cm, d0=4.3e-5, brip=1)
 ccccc Redi:  xrip=223 cm, wrip=18.3 cm , d0 = 1.4e-5, brip = 1.1
