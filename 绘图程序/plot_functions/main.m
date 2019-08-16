@@ -37,21 +37,21 @@ ylabel('lambda')
 saveas(gcf,'../pictures/lost_hist.fig')
 saveas(gcf,'../pictures/lost_hist.png')
 fprintf('please input position of FILD\n')
-thet0 = input('thet0 = ');
-thetm = input('thetm = ');
-zet0 = input('zet0 = ');
-zetm = input('zetm = ');
+%thet0 = input('thet0 = ');
+%thetm = input('thetm = ');
+%zet0 = input('zet0 = ');
+%zetm = input('zetm = ');
 
 %% q profile
 input('press enter to continue')
 shot = 63887; t = 2.1;
 safety_factor(shot,t)
 %% FILD plot
-FILD(lost,thet0,thetm,zet0,zetm)
-input('press enter to continue')
-FILD_ps1(lost,thet0,thetm,zet0,zetm)
-input('press enter to continue')
-FILD_ps2(lost,thet0,thetm,zet0,zetm)
+%FILD(lost,thet0,thetm,zet0,zetm)
+%input('press enter to continue')
+%FILD_ps1(lost,thet0,thetm,zet0,zetm)
+%input('press enter to continue')
+%FILD_ps2(lost,thet0,thetm,zet0,zetm)
 input('press enter to continue')
 lost_ps1(lost)
 input('press enter to continue')

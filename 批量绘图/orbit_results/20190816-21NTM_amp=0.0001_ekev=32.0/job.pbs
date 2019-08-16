@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -N q63887
+#PBS -m aeb
+#PBS -M yulimin@ecust.edu.cn
+#PBS -r n
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=1000:00:00
+#PBS -V
+#PBS -j oe
+
+
+echo "-----------------------"
+uniq $PBS_NODEFILE | sort
+echo "-----------------------"
+
+
+cd $PBS_O_WORKDIR
+ 
+./orbit >& run.out
+
+echo -n 'Ended program at  : ' ; date
+

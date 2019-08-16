@@ -1,0 +1,55 @@
+ orbit.f, read eqdata -lsp,lst,lq,le,lr
+ 201 141   4   8
+  toroidal psi wall   2.9563E-02
+set1  2.00E+00  2.00E+01  1.30E+00  1.85E+02  1.00E+00  1.80E+01  1.00E+00  3.80E-05
+ plasma volume,bax   1.1832E+00  1.0000E+00
+  Last flux surface is wall
+  equilibrium plotted, sub plotf
+  mupplane called en  2.0000E+01
+  mupplane   1.0000E+00  1.3219E+00
+  peplane called emin,emax,mub  2.0000E+01  2.0000E+01  0.0000E+00
+Seed:                                  0
+    50 poincare deposit   1.16E-04 < pol <   1.15E-02
+    50 poincare deposit   1.16E-04 < pol <   1.15E-02
+1. co- passing confined           50
+2. co- passing lost                0
+3. counter-passing confined        0
+4. counter-passing lost            0
+5. trapped  confined               0
+6. trapped lost                    0
+7. stagnation                      0
+8. conf. potato                    0
+9. lost. potato                    0
+total lost                         0
+total                             50
+t=  0.0000E+00 msec, write dist
+ ended  7.50E+04 steps      2 lost      48 at time=trun
+t=  1.2533E+01 msec, write distf, No with theta  < pi       2
+t=  1.2533E+01 msec, write lost
+   code orbit.f  nplot=  3
+equilibrium   analytic  
+ pq1,p1,polo,p2  5.81E-05  1.16E-04  5.81E-03  1.15E-02
+ rq1,rw,eps,xc  1.23E-02  2.43E-01  2.43E-01  1.00E+00
+ q0,qed,qw,bmin,bax,bmax  1.30E+00  4.89E+00  4.89E+00  8.06E-01  1.00E+00  1.32E+00
+ ped,pw,pvol     1.16E-02   1.16E-02   1.18E+00
+ shafranov shift/xc     0.00E+00
+ oma,omsti,gammhd     0.00E+00   0.00E+00   0.00E+00
+   1   1 pert-amp,m,n,freq,khz  1.00E-04   2/ 1  0.00E+00
+particles
+ engn,nprt,ftrap,nrep   3.80E-05      50   3.40E-01       0
+   nwal =   0
+times
+ run time, dt  1.3E-02 1.7E-07 sec
+ dt(nob),tran,dt0 1.4E+01 7.2E+02 1.4E+01
+ time,ntor,dele  1.08E+06    1500  5.00E+00
+ dt1,nstep,kplt,ncyc  7.20E+01     75001         0         0
+             cgs units
+equilibrium   analytic  
+ energy=2.00E+01 kev,   mass=2.00E+00 proton
+ charge z= 1.00E+00
+ b on axis =  1.80E+01 KG , axis  1.8500E+02 -1.5577E-17
+ lft,cent,axis,rt 1.40E+02 1.85E+02 1.85E+02 2.30E+02 cm
+ gyro=1.61E+00 cm, gyro/raxis 8.72E-03
+ gyro=8.62E+07 rad per sec,   tran=8.36E-06 sec
+ velocity=1.39E+08 cm/sec,    beta axis=0.00E+00
+ COMPUTE TIME =     5.630331039428711       sec
