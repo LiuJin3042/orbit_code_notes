@@ -23,8 +23,10 @@ def linspace(start,stop,count):
 l_ekev = linspace(20,77,6)
 l_amp = linspace(1e-5,7e-4,5)
 
-for amp in l_amp:
-    for ekev in l_ekev:
+for iamp in l_amp:
+    for iekev in l_ekev:
+        amp = [iamp]
+        ekev = iekev
         make.main(numeric,a,rmaj,rx,krip,q0,qed,qrx,modes,harm,nmod,mmod,omegv,alfv,amp,dele,a1,npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist)
              
 

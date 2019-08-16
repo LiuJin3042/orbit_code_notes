@@ -24,7 +24,6 @@ def main(numeric,a,rmaj,rx,krip,q0,qed,qrx,modes,harm,nmod,mmod,omegv,alfv,amp,d
     read and rewrite perturb.f
     output file should be in the same dir
     """
-    print(alfv)
     modify.mod_perturb(modes,harm,nmod,mmod,omegv,alfv,amp,dele,a1)
     
     

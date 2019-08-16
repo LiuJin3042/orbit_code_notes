@@ -133,7 +133,7 @@ cccccc
 ccccc  PARTICLE PARAMETERS
       zprt = 1.D0
       prot = 2.D0
-      ekev = 60
+      ekev = 77.0
 cccccccccc
 cccc-  DISTRIBUTION PARAMETERS -for stochastic, either stochmu or stoche
 	mubk = 10    !   mu*B0 in keV

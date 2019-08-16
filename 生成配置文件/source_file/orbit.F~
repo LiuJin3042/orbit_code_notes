@@ -78,7 +78,7 @@ cccc  CHOICE OF RUN, PLOTS
 cc
 ccccc NUMBER OF PARTICLES-  
         nprt = 30000    !   standard  
-c	if(nplot.eq.3) nprt = 30  ! poincare 
+	if(nplot.eq.3) nprt = 30  ! poincare 
 	if(nplot.eq.9) nprt = 40    ! kinetic poincare
 	if(nplot.eq.11) nprt = 4000    ! stoch and FLI
 	if(nplot.eq.14) nprt = 999900    ! anneal
@@ -153,7 +153,7 @@ cccc-  DISTRIBUTION PARAMETERS -for stochastic, either stochmu or stoche
         emaxk = ekev
         endif
 cccccccccccccccccccccccccccccccccccc
-c     if(nplot.eq.3) ekev = 40
+      if(nplot.eq.3) ekev = 40
 
 cccccc
 ccccc   STEP CONTROL, USING ENERGY CONSERVATION 

@@ -32,11 +32,13 @@ def sub_task(comment,pdist,numeric):
     else:
         gso('cp {orbit,orbit.F,spdata,job.pbs} ./%s'%des_folder)
     # let the user choose weather to submit the job
-    submit = raw_input('configuration is completed, submit the mission?(y/n) ')
+    # submit = raw_input('configuration is completed, submit the mission?(y/n) ')
+    submit = 'y'
+    monitor = 'y'
     if submit == 'y':
         status, output = gso('qsub ./%s/job.pbs'%des_folder)
         print(output)
-        monitor = raw_input('monitor the results?(y/n) ')
+        # monitor = raw_input('monitor the results?(y/n) ')
         if monitor == 'y':
             use.monitor()
             use.pack(des_folder)
