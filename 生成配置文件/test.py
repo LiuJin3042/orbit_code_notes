@@ -10,4 +10,3 @@ asdfasd
 asdfas
 skdf
 '''
-print(a)

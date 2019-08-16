@@ -48,7 +48,7 @@ cccc     numerical equilibrium choice
          endif
       endif
 c
-        rmaj = 165
+        rmaj = 185
 ccc
          lsp = 201   ! b,x,z,giac,q,ripple- poloidal spline grid points
          lst = 141   ! b,x,z,giac,ripple, must be odd-theta spline grid points
@@ -59,7 +59,7 @@ ccc
 ccc
 cccc  ripple choice krip=1-TFTR, krip=2-Tore Supra, krip=3-ITER
 cccc    krip=4-NSTX, krip=5-Ignitor
-      krip = 6
+      krip = 0
 cccc
       if(numeric.eq.0) call tok0
       if(numeric.eq.2) call rfp
@@ -104,12 +104,12 @@ ccccc- can choose pressure profile, Shafranov shift, and q profile
       write(6,1)
  1    format('  analytic Shafranov equilibrium')
       mp0 = 'analytic'
-      eps = 80.D0/rmaj
+      eps = 40.D0/rmaj
       bet = .0D0
 cc- set q0, q(rqx) = qx, qed, -> qr2,qr3
       q0 = 1.3
       qed = 4.9
-      rqx = 0.24242424242424243
+      rqx = 0.10810810810810811
       if(rqx.gt.eps) stop
       qx = 2.0
       shift = 0.1D0/rmaj   ! shift of plasma center, R = 1
@@ -124,8 +124,8 @@ cc      wk2(1) = ((qed-q0)*rqx**3 - eps**3*(qx-q0))/(eps**2*rqx**3 - eps**3*rqx*
 cc      call gelg(wk2,bmat,lmax,1,err0,ier) !fit q with matrix inversion
       qr2 = wk2(1)
       qr3 = wk2(2)
-      qr2 = 8.5078124
-      qr3 = 14.037890
+      qr2 = 42.781249
+      qr3 = 158.29062
       write(6,4) q0,qr2,qr3
  4    format('  q0,qr2,qr3 ',1p5e10.2)
 ccccc

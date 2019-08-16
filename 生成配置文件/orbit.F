@@ -77,7 +77,7 @@ cccc  CHOICE OF RUN, PLOTS
       nploteq = 1
 cc
 ccccc NUMBER OF PARTICLES-  
-        nprt = 1000
+        nprt = 3000
 	if(nplot.eq.3) nprt = 30  ! poincare 
 	if(nplot.eq.9) nprt = 40    ! kinetic poincare
 	if(nplot.eq.11) nprt = 4000    ! stoch and FLI
@@ -92,7 +92,7 @@ c    the rng is initialized with the date and time.
       iseed = 0
 ccc
 ccccc SIMULATION RUN TIME, in on-axis toroidal transits
-        ntor = 2500
+        ntor = 1500
 	if(nplot.eq.9) ntor = 200   !   kinetic poincare
 	if(nplot.eq.8) ntor = 100   ! mode excitation
 	if(nplot.eq.11) ntor = 50   ! rotation
@@ -106,7 +106,7 @@ ccc   READ EQUILIBRIUM DATA IN SPDATA
     
 ccc      call drev    ! reverses drift direction
 cccc  FIELD STRENGTH
-      bkg = 23
+      bkg = 18
 cccc
 cccc  numerical equilibrium spdata read
 cccc  can set ripple zero with krip=0
@@ -127,13 +127,13 @@ ccc   PARTICLE DISTRIBUTION, see shelldep, poindep
         polo = 0.5*pw
         p1 = 0.01*pw
         p2 = 0.99*pw
-        pchi = 0.7
+        pchi = 0
 
 cccccc
 ccccc  PARTICLE PARAMETERS
       zprt = 1.D0
-      prot = 1.D0
-      ekev = 93
+      prot = 2.D0
+      ekev = 60
 cccccccccc
 cccc-  DISTRIBUTION PARAMETERS -for stochastic, either stochmu or stoche
 	mubk = 10    !   mu*B0 in keV
@@ -240,7 +240,7 @@ ccc shelldep gives a general uniform distribution.
 ccc sampledep reads from TRANSP data
 ccc    poincare,  alphas,  fulldep,  read distf, btail
 	tdum = -2.6983
-        call shelldep
+        call poindep
 cc        if(nplot.eq.1) call shelldep(tdum)
 cc        if(nplot.eq.2) call shelldep(tdum)
 cc        if(nplot.eq.2) call sampledep   !  read from TRANSP
