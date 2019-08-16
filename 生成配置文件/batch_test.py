@@ -27,6 +27,7 @@ for iamp in l_amp:
     for iekev in l_ekev:
         amp = [iamp]
         ekev = iekev
-        make.main(numeric,a,rmaj,rx,krip,q0,qed,qrx,modes,harm,nmod,mmod,omegv,alfv,amp,dele,a1,npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist)
+        comment = '21NTM_amp=%s_ekev=%s'%(amp[0],ekev)
+        make.main(numeric,a,rmaj,rx,krip,q0,qed,qrx,modes,harm,nmod,mmod,omegv,alfv,amp,dele,a1,npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist,comment)
              
 
