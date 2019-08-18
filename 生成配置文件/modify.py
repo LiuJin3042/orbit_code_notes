@@ -78,7 +78,7 @@ def mod_perturb(modes,harm,nmod,mmod,omegv,alfv,amp,dele,a1):
     r_ptrb.close()
     w_ptrb.close()
 
-def mod_orbit(npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist):
+def mod_orbit(npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist,krip):
     r_orbit = open('./source_file/orbit.F', 'r')
     w_orbit = open('./orbit.F', 'w')
     orbit = r_orbit.readlines()
@@ -91,6 +91,7 @@ def mod_orbit(npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist):
         orbit[133] = '      zprt = ' + str(zprt) + '.D0\n'
         orbit[134] = '      prot = ' + str(prot) + '.D0\n'
         orbit[135] = '      ekev = ' + str(ekev) + '\n'
+        orbit[112] = '      krip = ' + str(krip) + '\n'
         orbit[108] = '      bkg = ' + str(bkg) + '\n'
         orbit[94] = '        ntor = ' + str(ntor) + '\n'
         orbit[79] = '        nprt = ' + str(nprt) + '\n'

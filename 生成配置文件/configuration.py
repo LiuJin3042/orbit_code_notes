@@ -35,7 +35,7 @@ if numeric == 0:
 # krip = 2-Tore Supra; krip = 3-ITER
 # krip = 4-NSTX; krip = 5-Ignitor
 # krip = 6-EAST
-krip = 0
+krip = 6
 
 
 """
