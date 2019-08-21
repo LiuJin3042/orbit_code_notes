@@ -78,7 +78,7 @@ cccc  CHOICE OF RUN, PLOTS
 cc
 ccccc NUMBER OF PARTICLES-  
         nprt = 3000
-	if(nplot.eq.3) nprt = 30  ! poincare 
+c	if(nplot.eq.3) nprt = 30  ! poincare 
 	if(nplot.eq.9) nprt = 40    ! kinetic poincare
 	if(nplot.eq.11) nprt = 4000    ! stoch and FLI
 	if(nplot.eq.14) nprt = 999900    ! anneal
@@ -110,7 +110,7 @@ cccc  FIELD STRENGTH
 cccc
 cccc  numerical equilibrium spdata read
 cccc  can set ripple zero with krip=0
-      krip = 0  !  comment out  for ripple
+      krip = 6
       kripsav = krip
 ccc
 cccc  PERTURBATION CHOICE, 0=none, 1=delta B, 2=potential, 3=both
@@ -133,7 +133,7 @@ cccccc
 ccccc  PARTICLE PARAMETERS
       zprt = 1.D0
       prot = 2.D0
-      ekev = 77.0
+      ekev = 60
 cccccccccc
 cccc-  DISTRIBUTION PARAMETERS -for stochastic, either stochmu or stoche
 	mubk = 10    !   mu*B0 in keV
@@ -153,7 +153,7 @@ cccc-  DISTRIBUTION PARAMETERS -for stochastic, either stochmu or stoche
         emaxk = ekev
         endif
 cccccccccccccccccccccccccccccccccccc
-      if(nplot.eq.3) ekev = 40
+c     if(nplot.eq.3) ekev = 40
 
 cccccc
 ccccc   STEP CONTROL, USING ENERGY CONSERVATION 

@@ -5,6 +5,8 @@ Created on Fri Aug 16 15:50:00 2019
 @author: LJ
 """
 
+from __future__ import division
+
 def mod_eqs(numeric,a,rmaj,rx,krip,q0,qed,qrx,):
     # modify eqs.f, new file will be output to main dir.
     # read files - rewrite certain lines - write to new files
