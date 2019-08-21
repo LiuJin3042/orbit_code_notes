@@ -94,8 +94,26 @@ plot.hist(ptch, bins=80, normed=1, facecolor='green', alpha=0.75)
 plot.show()
 
 """
-Ekev, use the number from configuration
+Eev, use the number from configuration, in ev
 """
+Eev = ekev * 1000 * np.ones((1,gen_particle_number))
+
+"""
+zeta, from 0 to 180 degree
+"""
+mu = 90
+sigma = 5
+zeta = np.random.normal(mu,sigma,gen_particle_number)
+plot.hist(zeta, bins=20, normed=1, facecolor='green', alpha=0.75)
+plot.show()
+
+fbm_dist = np.hstack((gen_particle_R,gen_particle_Z,ptch,ekev,zeta))
+w_fbm = open('fbm_dist.dat','w')
+
+
+
+
+
 
 
 
