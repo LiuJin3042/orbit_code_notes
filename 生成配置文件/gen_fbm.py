@@ -46,8 +46,7 @@ def df(x):
     return y
     
 gen_particle_number = nprt + 1
-head = """
- 5 %d
+head = """ 5 %d
  N=   %d Emin= 0.000000E+00   rng_seed=        100001
  "AC" FILE 63887A01.DATA9  TIME =  5.8906E+00 +/-  1.2500E-02 sec.           
   tokamak: ???? NLSYM=F #= 1 A= 2.0 Z= 1.0 NEUTRAL BEAM                      
@@ -60,26 +59,29 @@ gen_particle_number = 30000
 """
 generate R, the major radius of particle
 """
-# generate y, whichi is normalized radius
-# R = rmaj + a*y*cos(theta)
+# generate norm_r, whichi is normalized radius
+# R = rmaj + a*norm_r*cos(theta)
 x = np.random.rand(gen_particle_number)
-y = rdf(x)
+norm_r = rdf(x)
 # generate theta
 theta = np.random.rand(gen_particle_number)*np.pi*2
 # get R
-gen_particle_R = rmaj + a*y*np.cos(theta)
-# a brief view of the distribution of y
+gen_particle_R = rmaj + a*norm_r*np.cos(theta)
+# a brief view of the distribution of norm_r
 t = np.arange(0,1,0.001)
-y0 = df(t)
-y1 = rdf(t)
-plot.plot(t, y0, 'r-', linewidth=1) 
-plot.plot(t, y1, 'r-', linewidth=1) 
-plot.hist(y, bins=80, normed=1, facecolor='green', alpha=0.75)
+density_function = df(t)
+r_dist_funtion = rdf(t)
+plot.plot(t, density_function, 'r-', linewidth=1) # plot density function
+plot.plot(t, r_dist_funtion, 'r-', linewidth=1) # plot reverse distribution function
+plot.hist(norm_r, bins=80, normed=1, facecolor='green', alpha=0.75) # dsitribution of norm_r
 plot.show()
-plot.hist(a*y*np.cos(theta), bins=80, normed=1, facecolor='green', alpha=0.75)
+plot.hist(gen_particle_R, bins=10, normed=1, facecolor='green', alpha=0.75) # dsitribution of R
 plot.show()
-plot.hist(gen_particle_R, bins=10, normed=1, facecolor='green', alpha=0.75)
-plot.show()
+
+"""
+generate Z
+"""
+gen_particle_Z = a*norm_r*np.sin(theta)
 
 """
 generate pitch angle, which follows the normal distribution
@@ -87,8 +89,13 @@ generate pitch angle, which follows the normal distribution
 mu = 0.3
 sigma = 0.1
 ptch = np.random.normal(mu,sigma,gen_particle_number)
+ptch[(ptch < 0) + (ptch > 1)] = mu
+plot.hist(ptch, bins=80, normed=1, facecolor='green', alpha=0.75)
+plot.show()
 
-
+"""
+Ekev, use the number from configuration
+"""
 
 
 
