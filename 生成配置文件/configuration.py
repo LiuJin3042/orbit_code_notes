@@ -14,21 +14,20 @@ Read the configuration file, read the file to be changed, and write the new file
 # numeric: 平衡的类型,numeric = 1, 数值平衡
 # numeric = 0, 解析平衡, 需要提供设备参数, 包括rmaj和a
 numeric = 0
-if numeric == 0:
-    # rmaj, 大径, 半径, 单位: cm
-    rmaj = 185
-    # a, 小径, 直径, 单位: cm
-    a = 40
-    # 安全因子, q = q0 + qr2*r^2 + qr3*r^3, r是归一化的r
-    # r在源代码中是以rmaj归一, 但是为了便于设置, 这里还是采用以a归一
-    # q0: r = 0时的q值
-    # qed: r = 1时的q值
-    # qrx: r = rx时的q值为qrx. 需要设置qrx.
-    # 通过以上三组值解出qr2, qr3.
-    q0 = 1.3
-    qed = 4.9
-    rx = 0.5
-    qrx = 2
+# rmaj, 大径, 半径, 单位: cm
+rmaj = 185
+# a, 小径, 直径, 单位: cm
+a = 40
+# 安全因子, q = q0 + qr2*r^2 + qr3*r^3, r是归一化的r
+# r在源代码中是以rmaj归一, 但是为了便于设置, 这里还是采用以a归一
+# q0: r = 0时的q值
+# qed: r = 1时的q值
+# qrx: r = rx时的q值为qrx. 需要设置qrx.
+# 通过以上三组值解出qr2, qr3.
+q0 = 1.3
+qed = 4.9
+rx = 0.5
+qrx = 2
 
 # 波纹种类,krip
 # krip = 0-无波纹; krip = 1-TFTR
@@ -79,62 +78,29 @@ nplot = 2
 # pdist = 1-shelldep, pdist = 2-sampledep
 # pdist = 3-poindep,  pdist = 4-poinkdep
 pdist = 3
+# nprt: 粒子数
+nprt = 3000
 
-if pdist != 2:
-    # nprt: 粒子数
-    nprt = 3000
-    
-    # ntor: 程序运行时间, 粒子绕环ntor周, 程序停止
-    ntor = 1500
-    
-    # bkg: 磁场强度, 千高斯
-    bkg = 18
-    
-    # polo, shelldep粒子起始分布磁面
-    # p1, p2, poindep粒子分布的起始结束磁面
-    # pchi, 粒子起始俯仰角
-    polo = 0.5
-    p1 = 0.01
-    p2 = 0.99
-    pchi = 0
-    
-    # zprt, 粒子带电荷数, 单位为1个单位电荷
-    # prot, 粒子质量, 单位为单个质子质量
-    # ekev, 粒子能量, 单位为千电子伏
-    zprt = 1
-    prot = 2
-    ekev = 60
+# ntor: 程序运行时间, 粒子绕环ntor周, 程序停止
+ntor = 1500
+
+# bkg: 磁场强度, 千高斯
+bkg = 18
+
+# polo, shelldep粒子起始分布磁面
+# p1, p2, poindep粒子分布的起始结束磁面
+# pchi, 粒子起始俯仰角
+polo = 0.5
+p1 = 0.01
+p2 = 0.99
+pchi = 0
+
+# zprt, 粒子带电荷数, 单位为1个单位电荷
+# prot, 粒子质量, 单位为单个质子质量
+# ekev, 粒子能量, 单位为千电子伏
+zprt = 1
+prot = 2
+ekev = 60
 
 # comment: 对本文件的目的说明, 可以随意修改, 会被用作新生成的文件夹名称
 comment = '21NTM_amp=%s'%amp[0]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

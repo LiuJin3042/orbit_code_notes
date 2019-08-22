@@ -248,7 +248,7 @@ ccc	if(nplot.eq.2) call fulldepe   !  fixed E
 ccc	if(nplot.eq.2) call fulldepmu   !  fixed mu
 ccc	if(nplot.eq.2) call distread  !  Continuation using dumped dist
 ccc	if(nplot.eq.2) call btail     !  bump on tail
-	if(nplot.eq.3) call poindep   !  Poincare
+c	if(nplot.eq.3) call poindep   !  Poincare
 ccc	if(nplot.eq.2) call alphdep   !  Alphas
 	if(nplot.eq.5) call bootdep   ! bootstrap
 	if(nplot.eq.6) call tent      !  local diffusion
