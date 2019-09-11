@@ -1,0 +1,4 @@
+1. eqs.f编辑完后要编译 make FC=pgf90 eqs
+2. 编译完成后./eqs
+3. eqsub.f程序中xrip要放在循环里
+4. orbit.F里还要设置krip

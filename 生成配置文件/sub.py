@@ -13,6 +13,11 @@ def sub_task(comment,pdist,numeric):
     print(ying)
     # make file 
     print('making files, please wait')
+    print('making equilibrium files')
+    status, output = gso('make FC=pgf90 eqs')
+    print(output)
+    status, output = gso('./eqs')
+    print(output)
     status, output = gso('make FC=pgf90')
     print(output)
     # let the user choose weather to submit the job

@@ -107,10 +107,10 @@ def gen_fbm(nprt,rmaj,a,ekev):
     w_fbm.write(head)
     np.savetxt(w_fbm,fbm_dist,fmt='%14.6E',delimiter=' ')
     w_fbm.close()
-
+    show_dist(norm_r,gen_particle_R,ptch,zeta)
+    
 if __name__ == '__main__':
     gen_fbm(nprt,rmaj,a,ekev)
-
 
 
 
