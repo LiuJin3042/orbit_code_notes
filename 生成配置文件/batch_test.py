@@ -20,14 +20,15 @@ def linspace(start,stop,count):
         ap.append(start + i*step)
     return ap
 
-l_ekev = linspace(20,77,6)
-l_amp = linspace(1e-5,7e-4,5)
+l_pchi = linspace(0,1,10)
+l_polo = linspace(0,1,20)
 
-for iamp in l_amp:
-    for iekev in l_ekev:
-        amp = [iamp]
-        ekev = iekev
-        comment = '21NTM_amp=%s_ekev=%s'%(amp[0],ekev)
+for ipchi in l_pchi:
+    for ipolo in l_polo:
+        pchi = ipchi
+        polo = ipolo
+ 	krip = 0
+        comment = 'pchi=%4f_polo=%4f_no-ripple_NTM'%(pchi,polo)
         make.main(numeric,a,rmaj,rx,krip,q0,qed,qrx,modes,harm,nmod,mmod,omegv,alfv,amp,dele,a1,npert,polo,p1,p2,pchi,zprt,prot,ekev,bkg,ntor,nprt,nplot,pdist,comment)
              
 
