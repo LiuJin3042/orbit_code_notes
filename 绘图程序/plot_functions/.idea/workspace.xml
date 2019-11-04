@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d8e5d34f-2939-4795-8576-d4f89a05e962" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/plot_functions.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/number_modify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../会议记录/2019-6-3会议.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../会议记录/~$EAST 中性束注入快离子损失研究.mmap.~$lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/README.Orbit3d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/aharmonics.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/aharmonics.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/axis.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/axis.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/bucket.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/bucket.p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/dbrad.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/dbrad.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/dbrms.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/dbrms.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/diffusion.plt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/dist.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/dist.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/distf.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/distf.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/domain.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/domain.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/lost1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/mupplane.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/mupplane.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/peplane.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/peplane.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/pestag.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/pestag.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/poincare.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/poincare.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/profiles.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/profiles.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/spokes.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/spokes.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/stag.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/stag.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/surf.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/surf.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/thetproj.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/thetproj.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/traj1.plt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/traj2.plt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/wall.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/wall.plt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orbit_results/xharmonics.plt" beforeDir="false" afterPath="$PROJECT_DIR$/../orbit_results/xharmonics.plt" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1SipDv4g20uqxcM52tB1gNKeuSc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="number_modify" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="plot_functions" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/number_modify.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.number_modify" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8e5d34f-2939-4795-8576-d4f89a05e962" name="Default Changelist" comment="" />
+      <created>1572056154115</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572056154115</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

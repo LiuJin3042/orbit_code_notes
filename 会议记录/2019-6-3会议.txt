@@ -1,6 +1,0 @@
-根据粒子编号k找到初始状态
-根据图像中的点找出原始数据，重新建立表格
-tokamak三维图
-单粒子轨道动画
-eqs程序，转化map到spdata
-transp程序 转化fbmdat

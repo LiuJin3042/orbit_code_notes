@@ -1,66 +1,76 @@
 warning off
 mkdir('../pictures')
-%% a quick peak of lost data to decide the position of FILD
-m = importdata('../orbit_results/dist.plt');
-lost = m.data;
-thet = lost(:,2);
-thet = rem(thet,2*pi);
-zet = lost(:,3);
-zet = rem(zet,2*pi);
-x=lost(:,4);
-z=lost(:,5);
-en=lost(:,6);
-ptch=lost(:,7);
-pz=lost(:,8);
-type=lost(:,13);
+%% a quick peak of initial distribution of particles
+input('press enter to plot dist.plt')
+m = importdata('../orbit_results/dist.plt',' ',5);
+dist = m.data;
+init_particle_position(dist)
 
-subplot(2,2,1)
-histogram(thet)
-xlabel('thet')
-ylabel('N')
+%% a quick peak of final distribution of particles
+try
+    input('press enter to plot distf.plt')
+    m = importdata('../orbit_results/distf.plt',' ',5);
+    distf = m.data;
+    final_particle_position(distf)
+catch
+    distf = [];
+    input('file error, does not contain expected data, press enter to continue')
+end    
 
-subplot(2,2,2)
-histogram(zet)
-xlabel('zet')
-ylabel('N')
 
-subplot(2,2,3)
-plot(x,z,'.')
-xlabel('x')
-ylabel('z')
+try
+    %% a quick peak of lost data
+    input('press enter to plot lost.plt')
+    m = importdata('../orbit_results/lost.plt',' ',5);
+    lost = m.data;
+    lost_particle_position(lost)
+    %% phase of lost particles
+    input('press enter to plot lost phase')
+    lost_phase(lost)
+catch
+    lost = [];
+    input('file error, does not contain expected data, press enter to continue')
+end
 
-subplot(2,2,4)
-hist3([en,ptch]);
-xlabel('en')
-ylabel('lambda')
+%% q profile
+input('press enter to plot q profile')
+safety_factor()
 
-saveas(gcf,'../pictures/lost_hist.fig')
-saveas(gcf,'../pictures/lost_hist.png')
-fprintf('please input position of FILD\n')
+%% perturbation plot
+input('press enter to plot perturbation')
+perturb_plot()
+
+%% initial psi-lambda and x-z
+input('press enter to plot initial psi-lambda and x-z')
+ppxz_dist(dist)
+
+input('press enter to plot trajectory')
+try
+    m=importdata('../orbit_results/mupplane.plt',' ',1);
+    mup = m.data;
+    m3=importdata('../orbit_results/stag.plt',' ',1);
+    stag = m3.data;
+    m1=importdata('../orbit_results/traj2.plt',' ',1);% 1 rows for the column header.
+    traj2 = m1.data;
+    ps_traj(mup,traj2,stag)
+catch
+    input('file error, does not contain expected data, press enter to continue')
+end       
+
+input('press enter to plot initial phase of particles')
+init_particle_phase(lost,distf,dist,mup)
+
+input('all done, press enter to quit')
+close all
+
+
+%% FILD plot(this funciton has been removed)
 %thet0 = input('thet0 = ');
 %thetm = input('thetm = ');
 %zet0 = input('zet0 = ');
 %zetm = input('zetm = ');
-
-%% q profile
-input('press enter to continue')
-shot = 63887; t = 2.1;
-safety_factor(shot,t)
-%% FILD plot
 %FILD(lost,thet0,thetm,zet0,zetm)
 %input('press enter to continue')
 %FILD_ps1(lost,thet0,thetm,zet0,zetm)
 %input('press enter to continue')
 %FILD_ps2(lost,thet0,thetm,zet0,zetm)
-input('press enter to continue')
-lost_ps1(lost)
-input('press enter to continue')
-pdbrad()
-input('press enter to continue')
-pp_dist()
-input('press enter to continue')
-ppxz_dist()
-input('press enter to continue')
-ps_traj()
-input('press enter to continue')
-close all

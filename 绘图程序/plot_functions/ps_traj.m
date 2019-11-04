@@ -1,14 +1,9 @@
-function ps_traj()
+function ps_traj(mup,traj2,stag)
 % this function gives the figure of mu*B/E vs P_phi/psi_w
 close all
 muB=3.0241e+01; % mu*B0 for a particle with traj2.plt
-m=importdata('../orbit_results/mupplane.plt',' ',1);
-m1=importdata('../orbit_results/traj2.plt',' ',1);% 1 rows for the column header.
-m3=importdata('../orbit_results/stag.plt',' ',1);
-stag=m3.data;
 a=stag(:,1);
 b=stag(:,2);
-mup=m.data;
 x3=mup(:,1);
 y3=mup(:,2);
 z3=mup(:,3);
@@ -18,7 +13,6 @@ v3=mup(:,6);
 r3=mup(:,7);
 t3=mup(:,8);
 w3=mup(:,9);
-traj2=m1.data;
 de=traj2(:,2);
 q=traj2(:,4);
 ptch=traj2(:,5);

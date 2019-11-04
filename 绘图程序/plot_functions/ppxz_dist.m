@@ -1,8 +1,6 @@
-function ppxz_dist()
+function ppxz_dist(dist)
 % this function plots initial XZ from wall.plt and lambda vs phi_w/phi_s
 % from dist.plt
-m=importdata('../orbit_results/dist.plt',' ',5);% 6 rows for the column header.
-dist=m.data;
 pol=dist(:,1);
 thet=dist(:,2);
 zet=dist(:,3);
@@ -84,3 +82,4 @@ grid on
 set(gca,'FontSize',16,'LineWidth',3)
 saveas(gcf,'../pictures/p_p_dist.fig')
 saveas(gcf,'../pictures/p_p_dist.png')
+close gcf
