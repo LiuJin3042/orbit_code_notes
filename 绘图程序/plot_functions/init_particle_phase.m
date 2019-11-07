@@ -3,15 +3,18 @@ function init_particle_phase(lost,distf,dist,mup)
 
 %% import data(if not run as a function)
 % whether the particle is confined or lost
-% m = importdata('../orbit_results/lost.plt',' ',5);
-% lost = m.data;
-% m = importdata('../orbit_results/distf.plt',' ',5);
-% distf = m.data;
-% m = importdata('../orbit_results/dist.plt',' ',5);
-% dist = m.data;
-% m = importdata('../orbit_results/mupplane.plt',' ',1);
-% mup = m.data;
-lost = [lost;distf]; % 'lost' now stores the whole info of particles
+if nargin == 0
+    m = importdata('../orbit_results/lost.plt',' ',5);
+    lost = m.data;
+    m = importdata('../orbit_results/distf.plt',' ',5);
+    distf = m.data;
+    m = importdata('../orbit_results/dist.plt',' ',5);
+    dist = m.data;
+    m = importdata('../orbit_results/mupplane.plt',' ',1);
+    mup = m.data;
+end
+
+total_particle = [lost;distf]; % 'lost' now stores the whole info of particles
 %% draw boundary lines with mupplane.plt
 x3=mup(:,1);
 y3=mup(:,2);
@@ -30,8 +33,8 @@ ylabel('$\mu \cdot B_{0}/E$','FontSize',16,'interpreter','latex')
 axis([-3.5 2 0 1.4])
 
 %% draw lost particles
-lost_type = lost(:,14);
-particle_code = lost(:,13);
+lost_type = total_particle(:,14);
+particle_code = total_particle(:,13);
 % ËðÊ§Á£×ÓÐòºÅ
 lost_particle = particle_code(find(lost_type == 2 | lost_type == 4 | lost_type == 6 | lost_type == 9));
 lost_init_phase = dist(lost_particle,:); % ËðÊ§Á£×Ó³õÊ¼ÐÅÏ¢
